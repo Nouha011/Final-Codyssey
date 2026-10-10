@@ -1,0 +1,634 @@
+/* =========================
+   ROOT
+========================= */
+
+:root {
+
+    --cream: #eadbc5;
+
+    --muted: #c8b9a7;
+
+    --gold: #c4a574;
+
+    --dark: #21191a;
+
+    --line: rgba(234, 219, 197, 0.22);
+
+    --page: #4B3C3D;
+
+}
+
+
+/* =========================
+   RESET
+========================= */
+
+* {
+
+    box-sizing: border-box;
+
+    margin: 0;
+
+    padding: 0;
+
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    background-color: var(--page);
+
+    background-image: url("../images/map.png");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    background-attachment: fixed;
+
+    color: var(--cream);
+
+    font-family: "DM Sans", sans-serif;
+
+}
+
+
+/* =========================
+   DARKNESS
+========================= */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 900;
+
+    background:
+
+        /* TOP DARKNESS */
+
+        linear-gradient(
+
+            180deg,
+
+            rgba(0, 0, 0, 1) 0%,
+
+            rgba(0, 0, 0, 0.3) 20%,
+
+            rgba(0, 0, 0, 0) 30%
+
+        ),
+
+        /* BOTTOM DARKNESS */
+
+        linear-gradient(
+
+            0deg,
+
+            rgba(0, 0, 0, 1) 0%,
+
+            rgba(0, 0, 0, 0.3) 20%,
+
+            rgba(0, 0, 0, 0) 40%
+
+        );
+
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 78px;
+
+    padding: 0 55px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    z-index: 1000;
+
+}
+
+
+/* =========================
+   LOGO
+========================= */
+
+.logo {
+
+    font-family: "Cinzel", serif;
+
+    font-size: 1.25rem;
+
+    letter-spacing: 0.2em;
+
+    color: var(--cream);
+
+    transition:
+
+        opacity 0.4s ease,
+
+        letter-spacing 0.4s ease;
+
+}
+
+
+.logo:hover {
+
+    opacity: 0.8;
+
+    letter-spacing: 0.23em;
+
+}
+
+
+/* =========================
+   LOG OUT BUTTON
+========================= */
+
+.logout-button {
+
+    padding: 8px 20px;
+
+    background: rgba(234, 219, 197, 0.08);
+
+    border: 1px solid rgba(234, 219, 197, 0.4);
+
+    color: var(--cream);
+
+    font-family: "Cinzel", serif;
+
+    font-size: 0.8rem;
+
+    cursor: pointer;
+
+    transition:
+
+        background-color 0.35s ease,
+
+        color 0.35s ease,
+
+        border-color 0.35s ease,
+
+        transform 0.35s ease,
+
+        box-shadow 0.35s ease;
+
+}
+
+
+.logout-button:hover {
+
+    background: var(--cream);
+
+    color: var(--dark);
+
+    border-color: var(--cream);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+
+        0 8px 20px rgba(0, 0, 0, 0.15);
+
+}
+
+
+.logout-button:active {
+
+    transform: translateY(0);
+
+}
+
+
+/* =========================
+   MAP PAGE
+========================= */
+
+.map-page {
+
+    position: relative;
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    overflow: hidden;
+
+}
+
+
+/* =========================
+   VOYAGE ROUTE
+========================= */
+
+.voyage-route {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    pointer-events: none;
+
+    z-index: 10;
+
+}
+
+
+.route-line {
+
+    fill: none;
+
+    stroke: rgba(33, 25, 26, 0.9);
+
+    stroke-width: 2;
+
+    stroke-linecap: round;
+
+    stroke-dasharray: 3 9;
+
+    animation: voyage 18s linear infinite;
+
+}
+
+
+@keyframes voyage {
+
+    to {
+
+        stroke-dashoffset: -120;
+
+    }
+
+}
+
+
+/* =========================
+   DESTINATIONS
+========================= */
+
+.destination {
+
+    position: absolute;
+
+    z-index: 20;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 10px;
+
+    background: transparent;
+
+    border: none;
+
+    color: var(--cream);
+
+    cursor: pointer;
+
+    transform: translate(-50%, -50%);
+
+    font-family: "Cinzel", serif;
+
+}
+
+
+/* =========================
+   PIN
+========================= */
+
+.pin {
+
+    position: relative;
+
+    width: 26px;
+
+    height: 26px;
+
+    display: block;
+
+    border: 2px solid var(--dark);
+
+    border-radius: 50% 50% 50% 0;
+
+    background: rgba(234, 219, 197, 0.9);
+
+    transform: rotate(-45deg);
+
+    box-shadow:
+
+        0 3px 8px rgba(0, 0, 0, 0.35);
+
+    transition:
+
+        transform 0.35s ease,
+
+        background-color 0.35s ease,
+
+        box-shadow 0.35s ease;
+
+}
+
+
+/* INNER CIRCLE */
+
+.pin-center {
+
+    position: absolute;
+
+    width: 8px;
+
+    height: 8px;
+
+    top: 7px;
+
+    left: 7px;
+
+    border-radius: 50%;
+
+    background: var(--dark);
+
+}
+
+
+/* =========================
+   DESTINATION NAME
+========================= */
+
+.destination-name {
+
+    padding: 5px 10px;
+
+    background: rgba(33, 25, 26, 0.72);
+
+    border: 1px solid rgba(33, 25, 26, 0.65);
+
+    color: var(--cream);
+
+    font-size: 0.68rem;
+
+    letter-spacing: 0.15em;
+
+    white-space: nowrap;
+
+    transition:
+
+        transform 0.35s ease,
+
+        background-color 0.35s ease,
+
+        color 0.35s ease,
+
+        border-color 0.35s ease;
+
+}
+
+
+/* =========================
+   DESTINATION HOVER
+========================= */
+
+.destination:hover .pin {
+
+    background: var(--gold);
+
+    transform:
+
+        rotate(-45deg)
+
+        scale(1.15);
+
+    box-shadow:
+
+        0 5px 16px rgba(0, 0, 0, 0.5);
+
+}
+
+
+.destination:hover .destination-name {
+
+    transform: translateY(-3px);
+
+    background: var(--cream);
+
+    color: var(--dark);
+
+    border-color: var(--cream);
+
+}
+
+
+/* =========================
+   DESTINATION POSITIONS
+   LEFT → RIGHT
+========================= */
+
+
+/* TROY — FIRST */
+
+.destination-troy {
+
+    left: 15%;
+
+    top: 58%;
+
+}
+
+
+/* CYCLOPS */
+
+.destination-cyclops {
+
+    left: 37%;
+
+    top: 65%;
+
+}
+
+
+/* SIRENS */
+
+.destination-sirens {
+
+    left: 60%;
+
+    top: 55%;
+
+}
+
+
+/* ITHACA — LAST */
+
+.destination-ithaca {
+
+    left: 85%;
+
+    top: 47%;
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 800px) {
+
+    body {
+
+        background-attachment: scroll;
+
+    }
+
+
+    .navbar {
+
+        padding: 0 25px;
+
+    }
+
+
+    /* Hide the route on smaller
+       screens for now because the
+       map proportions change */
+
+    .voyage-route {
+
+        display: none;
+
+    }
+
+
+    .destination-name {
+
+        font-size: 0.6rem;
+
+    }
+
+
+    .pin {
+
+        width: 22px;
+
+        height: 22px;
+
+    }
+
+
+    .pin-center {
+
+        width: 7px;
+
+        height: 7px;
+
+        top: 5.5px;
+
+        left: 5.5px;
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .navbar {
+
+        height: 70px;
+
+        padding: 0 18px;
+
+    }
+
+
+    .logo {
+
+        font-size: 1rem;
+
+    }
+
+
+    .logout-button {
+
+        padding: 9px 12px;
+
+        font-size: 0.7rem;
+
+    }
+
+
+    .destination-troy {
+
+        left: 18%;
+
+        top: 55%;
+
+    }
+
+
+    .destination-cyclops {
+
+        left: 40%;
+
+        top: 68%;
+
+    }
+
+
+    .destination-sirens {
+
+        left: 62%;
+
+        top: 52%;
+
+    }
+
+
+    .destination-ithaca {
+
+        left: 83%;
+
+        top: 40%;
+
+    }
+
+}
