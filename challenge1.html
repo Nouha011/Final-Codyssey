@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Codyssey — Prepare the Fleet</title>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/challenge1.css"
+    >
+</head>
+
+
+<body>
+
+    <!-- ================================================= -->
+    <!-- NAVBAR -->
+    <!-- ================================================= -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            CODYSSEY
+        </div>
+
+        <button
+            class="map-button"
+            onclick="returnToMap()"
+        >
+            Return to Map
+        </button>
+
+    </nav>
+
+
+    <!-- ================================================= -->
+    <!-- MAIN -->
+    <!-- ================================================= -->
+
+    <main>
+
+        <!-- ================================================= -->
+        <!-- HEADER -->
+        <!-- ================================================= -->
+
+        <section class="challenge-header">
+
+            <span class="chapter">
+                FINAL TRIAL
+            </span>
+
+            <h1>
+                Prepare the Fleet
+            </h1>
+
+            <p>
+                Before you begin your Flexbox voyage,
+                prove that you understand the boxes
+                that make up your page.
+            </p>
+
+        </section>
+
+
+        <!-- ================================================= -->
+        <!-- CHALLENGE PROGRESS -->
+        <!-- ================================================= -->
+
+        <div class="challenge-progress">
+
+            <div class="progress-item active" id="progressQCM">
+                <span>01</span>
+                <p>Knowledge</p>
+            </div>
+
+            <div class="progress-line"></div>
+
+            <div class="progress-item" id="progressCommands">
+                <span>02</span>
+                <p>Commands</p>
+            </div>
+
+        </div>
+
+
+        <!-- ================================================= -->
+        <!-- PART 1 — QCM -->
+        <!-- ================================================= -->
+
+        <section
+            class="challenge-section active"
+            id="qcmSection"
+        >
+
+            <div class="section-heading">
+
+                <span class="section-number">
+                    TRIAL I
+                </span>
+
+                <h2>
+                    Know Your Ship
+                </h2>
+
+                <p>
+                    Answer the questions below.
+                    You must understand the basics
+                    before the crew can sail.
+                </p>
+
+            </div>
+
+
+            <!-- QUESTION 1 -->
+
+            <div class="question">
+
+                <span class="question-number">
+                    01
+                </span>
+
+                <h3>
+                    In CSS, every HTML element can be thought of as a...
+                </h3>
+
+                <div class="answers">
+
+                    <label class="answer">
+                        <input
+                            type="radio"
+                            name="q1"
+                            value="a"
+                        >
+                        <span>A</span>
+                        <p>A line</p>
+                    </label>
+
+                    <label class="answer">
+                        <input
+                            type="radio"
+                            name="q1"
+                            value="b"
+                        >
+                        <span>B</span>
+                        <p>Box</p>
+                    </label>
+
+                    <label class="answer">
+                        <input
+                            type="radio"
+                            name="q1"
+                            value="c"
+                        >
+                        <span>C</span>
+                        <p>Grid</p>
+                    </label>
+
+                    <label class="answer">
+                        <input
+                            type="radio"
+                            name="q1"
+                            value="d"
+                        >
+                        <span>D</span>
+                        <p>Button</p>
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <!-- QUESTION 2 -->
+
+            <div class="question">
+
+                <span class="question-number">
+                    02
+                </span>
+
+                <h3>
+                    Which property creates space inside an element?
+                </h3>
+
+                <div class="answers">
+
+                    <label class="answer">
+                        <input
+                            type="radio"
+                            name="q2"
+                            value="a"
+                        >
+                        <span>A</span>
+                        <p>margin</p>
+                    </label>
+
+                    <label class="answer">
+                        <input
+                            type="radio"
+                            name="q2"
+                            value="b"
+                        >
+                        <span>B</span>
+                        <p>border</p>
+                    </label>
+
+                    <label class="answer">
+                        <input
+                            type="radio"
+                            name="q2"
+                            value="c"
+                        >
+                        <span>C</span>
+                        <p>padding</p>
+                    </label>
+
+                    <label class="answer">
+                        <input
+                            type="radio"
+                            name="q2"
+                            value="d"
+                        >
+                        <span>D</span>
+                        <p>gap</p>
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <!-- QUESTION 3 -->
+
+            <div class="question">
+
+                <span class="question-number">
+                    03
+                </span>
+
+                <h3>
+                    Which property creates space outside an element?
+                </h3>
+
+                <div class="answers">
+
+                    <label class="answer">
+                        <input
+                            type="radio"
+                            name="q3"
+                            value="a"
+                        >
+                        <span>A</span>
+                        <p>padding</p>
+                    </label>
+
+                    <label class="answer">
+                        <input
+                            type="radio"
+                            name="q3"
+                            value="b"
+                        >
+                        <span>B</span>
+                        <p>margin</p>
+                    </label>
+
+                    <label class="answer">
+                        <input
+                            type="radio"
+                            name="q3"
+                            value="c"
+                        >
+                        <span>C</span>
+                        <p>width</p>
+                    </label>
+
+                    <label class="answer">
+                        <input
+                            type="radio"
+                            name="q3"
+                            value="d"
+                        >
+                        <span>D</span>
+                        <p>border</p>
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <!-- QUESTION 4 -->
+
+            <div class="question">
+
+                <span class="question-number">
+                    04
+                </span>
+
+                <h3>
+                    What creates the visible edge around a box?
+                </h3>
+
+                <div class="answers">
+
+                    <label class="answer">
+                        <input
+                            type="radio"
+                            name="q4"
+                            value="a"
+                        >
+                        <span>A</span>
+                        <p>margin</p>
+                    </label>
+
+                    <label class="answer">
+                        <input
+                            type="radio"
+                            name="q4"
+                            value="b"
+                        >
+                        <span>B</span>
+                        <p>padding</p>
+                    </label>
+
+                    <label class="answer">
+                        <input
+                            type="radio"
+                            name="q4"
+                            value="c"
+                        >
+                        <span>C</span>
+                        <p>border</p>
+                    </label>
+
+                    <label class="answer">
+                        <input
+                            type="radio"
+                            name="q4"
+                            value="d"
+                        >
+                        <span>D</span>
+                        <p>height</p>
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <!-- QUESTION 5 -->
+
+            <div class="question">
+
+                <span class="question-number">
+                    05
+                </span>
+
+                <h3>
+                    What does <code>display: flex;</code> do?
+                </h3>
+
+                <div class="answers">
+
+                    <label class="answer">
+                        <input
+                            type="radio"
+                            name="q5"
+                            value="a"
+                        >
+                        <span>A</span>
+                        <p>Makes the box taller</p>
+                    </label>
+
+                    <label class="answer">
+                        <input
+                            type="radio"
+                            name="q5"
+                            value="b"
+                        >
+                        <span>B</span>
+                        <p>Adds space inside the box</p>
+                    </label>
+
+                    <label class="answer">
+                        <input
+                            type="radio"
+                            name="q5"
+                            value="c"
+                        >
+                        <span>C</span>
+                        <p>Turns an element into a Flexbox container</p>
+                    </label>
+
+                    <label class="answer">
+                        <input
+                            type="radio"
+                            name="q5"
+                            value="d"
+                        >
+                        <span>D</span>
+                        <p>Adds a border</p>
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="check-button"
+                onclick="checkQCM()"
+            >
+                Check Answers →
+            </button>
+
+            <div
+                class="feedback"
+                id="qcmFeedback"
+            ></div>
+
+        </section>
+
+
+        <!-- ================================================= -->
+        <!-- PART 2 — COMMANDS -->
+        <!-- ================================================= -->
+
+        <section
+            class="challenge-section"
+            id="commandsSection"
+        >
+
+            <div class="section-heading">
+
+                <span class="section-number">
+                    TRIAL II
+                </span>
+
+                <h2>
+                    Command the Crew
+                </h2>
+
+                <p>
+                    The knowledge is yours.
+                    Now use CSS to prepare the ship.
+                </p>
+
+            </div>
+
+
+            <!-- ================================================= -->
+            <!-- COMMAND 1 -->
+            <!-- ================================================= -->
+
+            <div
+                class="command-challenge"
+                id="command1"
+            >
+
+                <div class="command-info">
+
+                    <span class="command-number">
+                        COMMAND 01
+                    </span>
+
+                    <h3>
+                        Give the Treasure Room Space
+                    </h3>
+
+                    <p>
+                        The treasure is too close to the
+                        walls. Give the box <strong>20px</strong>
+                        of space <strong>inside</strong>.
+                    </p>
+
+                    <p class="hint">
+                        Hint: Think about the space between
+                        the content and the edge of the box.
+                    </p>
+
+                </div>
+
+
+                <div class="terminal">
+
+                    <div class="terminal-top">
+
+                        <span class="terminal-title">
+                            CSS TERMINAL
+                        </span>
+
+                        <button
+                            onclick="runCommand(1)"
+                        >
+                            RUN
+                        </button>
+
+                    </div>
+
+                    <textarea
+                        id="code1"
+                        spellcheck="false"
+                    >.treasure {
+    /* write your CSS here */
+}</textarea>
+
+                    <div class="result-label">
+                        LIVE RESULT
+                    </div>
+
+                    <iframe
+                        id="preview1"
+                        class="preview"
+                        title="Treasure preview"
+                    ></iframe>
+
+                </div>
+
+                <div
+                    class="command-feedback"
+                    id="feedback1"
+                ></div>
+
+            </div>
+
+
+            <!-- ================================================= -->
+            <!-- COMMAND 2 -->
+            <!-- ================================================= -->
+
+            <div
+                class="command-challenge"
+                id="command2"
+            >
+
+                <div class="command-info">
+
+                    <span class="command-number">
+                        COMMAND 02
+                    </span>
+
+                    <h3>
+                        Leave Room to Sail
+                    </h3>
+
+                    <p>
+                        The crew members are standing too
+                        close to the outside world.
+                        Give each member <strong>30px</strong>
+                        of space <strong>outside</strong>.
+                    </p>
+
+                    <p class="hint">
+                        Hint: This time, the space is outside
+                        the box.
+                    </p>
+
+                </div>
+
+
+                <div class="terminal">
+
+                    <div class="terminal-top">
+
+                        <span class="terminal-title">
+                            CSS TERMINAL
+                        </span>
+
+                        <button
+                            onclick="runCommand(2)"
+                        >
+                            RUN
+                        </button>
+
+                    </div>
+
+                    <textarea
+                        id="code2"
+                        spellcheck="false"
+                    >.crew-member {
+    /* write your CSS here */
+}</textarea>
+
+                    <div class="result-label">
+                        LIVE RESULT
+                    </div>
+
+                    <iframe
+                        id="preview2"
+                        class="preview"
+                        title="Crew margin preview"
+                    ></iframe>
+
+                </div>
+
+                <div
+                    class="command-feedback"
+                    id="feedback2"
+                ></div>
+
+            </div>
+
+
+            <!-- ================================================= -->
+            <!-- COMMAND 3 -->
+            <!-- ================================================= -->
+
+            <div
+                class="command-challenge"
+                id="command3"
+            >
+
+                <div class="command-info">
+
+                    <span class="command-number">
+                        COMMAND 03
+                    </span>
+
+                    <h3>
+                        Build the Cabin
+                    </h3>
+
+                    <p>
+                        The ship needs a cabin.
+                        Give it:
+                    </p>
+
+                    <ul>
+                        <li>200px width</li>
+                        <li>100px height</li>
+                        <li>3px solid border</li>
+                    </ul>
+
+                    <p class="hint">
+                        You need more than one CSS property
+                        this time.
+                    </p>
+
+                </div>
+
+
+                <div class="terminal">
+
+                    <div class="terminal-top">
+
+                        <span class="terminal-title">
+                            CSS TERMINAL
+                        </span>
+
+                        <button
+                            onclick="runCommand(3)"
+                        >
+                            RUN
+                        </button>
+
+                    </div>
+
+                    <textarea
+                        id="code3"
+                        spellcheck="false"
+                    >.cabin {
+    /* write your CSS here */
+}</textarea>
+
+                    <div class="result-label">
+                        LIVE RESULT
+                    </div>
+
+                    <iframe
+                        id="preview3"
+                        class="preview"
+                        title="Cabin preview"
+                    ></iframe>
+
+                </div>
+
+                <div
+                    class="command-feedback"
+                    id="feedback3"
+                ></div>
+
+            </div>
+
+
+            <!-- ================================================= -->
+            <!-- COMMAND 4 -->
+            <!-- ================================================= -->
+
+            <div
+                class="command-challenge"
+                id="command4"
+            >
+
+                <div class="command-info">
+
+                    <span class="command-number">
+                        COMMAND 04
+                    </span>
+
+                    <h3>
+                        Prepare the Crew
+                    </h3>
+
+                    <p>
+                        The crew is currently stacked vertically.
+                    </p>
+
+                    <p>
+                        Put the crew members
+                        <strong>side by side</strong>
+                        and leave <strong>20px</strong>
+                        between them.
+                    </p>
+
+                    <p class="hint">
+                        This is your first step toward
+                        the Flexbox voyage.
+                    </p>
+
+                </div>
+
+
+                <div class="terminal">
+
+                    <div class="terminal-top">
+
+                        <span class="terminal-title">
+                            CSS TERMINAL
+                        </span>
+
+                        <button
+                            onclick="runCommand(4)"
+                        >
+                            RUN
+                        </button>
+
+                    </div>
+
+                    <textarea
+                        id="code4"
+                        spellcheck="false"
+                    >.crew {
+    /* write your CSS here */
+}</textarea>
+
+                    <div class="result-label">
+                        LIVE RESULT
+                    </div>
+
+                    <iframe
+                        id="preview4"
+                        class="preview"
+                        title="Flex crew preview"
+                    ></iframe>
+
+                </div>
+
+                <div
+                    class="command-feedback"
+                    id="feedback4"
+                ></div>
+
+            </div>
+
+
+            <!-- ================================================= -->
+            <!-- FINAL COMMAND -->
+            <!-- ================================================= -->
+
+            <div
+                class="command-challenge final-command"
+                id="command5"
+            >
+
+                <div class="command-info">
+
+                    <span class="command-number">
+                        FINAL COMMAND
+                    </span>
+
+                    <h3>
+                        Prepare the Fleet
+                    </h3>
+
+                    <p>
+                        The ship is almost ready.
+                        Put everything you learned together.
+                    </p>
+
+                    <p>
+                        Give the ship:
+                    </p>
+
+                    <ul>
+                        <li>300px width</li>
+                        <li>150px height</li>
+                        <li>20px padding</li>
+                        <li>3px solid border</li>
+                        <li>30px margin</li>
+                    </ul>
+
+                    <p>
+                        Then place the crew in a row
+                        with <strong>15px</strong> between them.
+                    </p>
+
+                </div>
+
+
+                <div class="terminal">
+
+                    <div class="terminal-top">
+
+                        <span class="terminal-title">
+                            CSS TERMINAL
+                        </span>
+
+                        <button
+                            onclick="runCommand(5)"
+                        >
+                            RUN
+                        </button>
+
+                    </div>
+
+                    <textarea
+                        id="code5"
+                        spellcheck="false"
+                    >.ship {
+    /* write your CSS here */
+}
+
+.crew {
+    /* write your CSS here */
+}</textarea>
+
+                    <div class="result-label">
+                        LIVE RESULT
+                    </div>
+
+                    <iframe
+                        id="preview5"
+                        class="preview tall"
+                        title="Final fleet preview"
+                    ></iframe>
+
+                </div>
+
+                <div
+                    class="command-feedback"
+                    id="feedback5"
+                ></div>
+
+            </div>
+
+
+            <!-- ================================================= -->
+            <!-- SUCCESS -->
+            <!-- ================================================= -->
+
+            <div
+                class="success-message"
+                id="successMessage"
+            >
+
+                <span class="success-mark">
+                    ✦
+                </span>
+
+                <h2>
+                    The Fleet Is Ready
+                </h2>
+
+                <p>
+                    You understand the box.
+                    You understand its space.
+                    And now you are ready to arrange the crew.
+                </p>
+
+                <p>
+                    Your Flexbox voyage begins now.
+                </p>
+
+                <button
+                    class="finish-button"
+                    onclick="startFlexbox()"
+                >
+                    Begin the Flexbox Voyage →
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================================================= -->
+    <!-- BOTTOM NAVIGATION -->
+    <!-- ================================================= -->
+
+    <div class="challenge-navigation">
+
+        <button
+            class="navigation-button"
+            onclick="returnToMap()"
+        >
+            ← Leave Challenge
+        </button>
+
+        <div class="chapter-progress">
+
+            <span
+                class="dot active"
+                id="dot1"
+            ></span>
+
+            <span
+                class="dot"
+                id="dot2"
+            ></span>
+
+        </div>
+
+        <button
+            class="navigation-button"
+            id="nextSectionButton"
+            onclick="goToCommands()"
+            disabled
+        >
+            Commands →
+        </button>
+
+    </div>
+
+
+    <script src="js/challenge1.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Codyssey — Before the Voyage</title>
+
+    <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="css/lesson1.css">
+
+</head>
+
+
+<body class="step-1">
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            CODYSSEY
+        </div>
+
+        <button
+            class="map-button"
+            onclick="returnToMap()"
+        >
+            Return to Map
+        </button>
+
+    </nav>
+
+
+    <main>
+
+
+        <!-- ================================================= -->
+        <!-- PAGE 1 -->
+        <!-- ================================================= -->
+
+        <section
+            class="lesson-page active"
+            id="page1"
+        >
+
+            <div class="page-heading">
+
+                <span class="chapter">
+                    CHAPTER I
+                </span>
+
+                <h1>
+                    Every Element Is a Box
+                </h1>
+
+                <p>
+                    Before we set sail with Flexbox,
+                    we need to understand the things
+                    we are trying to arrange.
+                </p>
+
+            </div>
+
+
+            <div class="lesson-content">
+
+                <div class="lesson-text">
+
+                    <h2>
+                        Welcome Aboard
+                    </h2>
+
+                    <p>
+                        Almost everything you see on a
+                        webpage is an HTML element.
+                    </p>
+
+                    <p>
+                        A heading, a paragraph, a button,
+                        an image, or a <code>div</code> may
+                        look completely different, but CSS
+                        treats each element as a box.
+                    </p>
+
+
+                    <div class="property-block">
+
+                        <h3>
+                            Think in boxes
+                        </h3>
+
+                        <p>
+                            Every element takes up space
+                            on the page.
+                        </p>
+
+                        <pre><code>&lt;div&gt;
+    My first box
+&lt;/div&gt;</code></pre>
+
+                        <p>
+                            CSS lets us control that box:
+                            its size, its space, its border,
+                            and its position.
+                        </p>
+
+                        <p class="codyssey-note">
+                            Before you can arrange the crew,
+                            you need to know what each sailor
+                            is standing on.
+                        </p>
+
+                    </div>
+
+
+                    <h3>
+                        What should you notice?
+                    </h3>
+
+                    <p>
+                        The box itself is the element.
+                        The text inside it is its content.
+                    </p>
+
+                    <p>
+                        In the next chapters, we will learn
+                        how CSS controls the space around
+                        that content.
+                    </p>
+
+                </div>
+
+
+                <div class="interactive-example">
+
+                    <div class="terminal">
+
+                        <div class="terminal-top">
+
+                            <span class="terminal-title">
+                                CSS TERMINAL
+                            </span>
+
+                            <button onclick="runExample(1)">
+                                RUN
+                            </button>
+
+                        </div>
+
+                        <textarea
+                            id="code1"
+                            spellcheck="false"
+                        >.box {
+    width: 220px;
+    height: 120px;
+}</textarea>
+
+                    </div>
+
+
+                    <div class="result-label">
+                        LIVE RESULT
+                    </div>
+
+                    <iframe
+                        id="preview1"
+                        class="preview"
+                        title="CSS box preview"
+                    ></iframe>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================================================= -->
+        <!-- PAGE 2 -->
+        <!-- ================================================= -->
+
+        <section
+            class="lesson-page"
+            id="page2"
+        >
+
+            <div class="page-heading">
+
+                <span class="chapter">
+                    CHAPTER II
+                </span>
+
+                <h1>
+                    Meet the Box Model
+                </h1>
+
+                <p>
+                    Every CSS box is made of several
+                    layers. Let's open it up.
+                </p>
+
+            </div>
+
+
+            <div class="lesson-content">
+
+                <div class="lesson-text">
+
+                    <h2>
+                        Four Layers
+                    </h2>
+
+                    <p>
+                        The CSS Box Model describes the
+                        different parts of an element.
+                    </p>
+
+                    <p>
+                        From the inside moving outward,
+                        we have:
+                    </p>
+
+
+                    <div class="property-block">
+
+                        <h3>
+                            <code>Content</code>
+                        </h3>
+
+                        <p>
+                            The actual thing inside the
+                            element — text, an image,
+                            or another element.
+                        </p>
+
+                    </div>
+
+
+                    <div class="property-block">
+
+                        <h3>
+                            <code>Padding</code>
+                        </h3>
+
+                        <p>
+                            Space between the content
+                            and the border.
+                        </p>
+
+                    </div>
+
+
+                    <div class="property-block">
+
+                        <h3>
+                            <code>Border</code>
+                        </h3>
+
+                        <p>
+                            The visible edge surrounding
+                            the padding and content.
+                        </p>
+
+                    </div>
+
+
+                    <div class="property-block">
+
+                        <h3>
+                            <code>Margin</code>
+                        </h3>
+
+                        <p>
+                            Space outside the border,
+                            separating this box from others.
+                        </p>
+
+                        <p class="codyssey-note">
+                            Remember the order:
+                            Content → Padding → Border → Margin.
+                        </p>
+
+                    </div>
+
+
+                    <h3>
+                        Put the layers together
+                    </h3>
+
+                    <p>
+                        Think of the box like a treasure
+                        chest. The content is the treasure,
+                        padding gives it room, the border
+                        surrounds it, and margin keeps other
+                        chests away.
+                    </p>
+
+                </div>
+
+
+                <div class="interactive-example">
+
+                    <div class="terminal">
+
+                        <div class="terminal-top">
+
+                            <span class="terminal-title">
+                                CSS TERMINAL
+                            </span>
+
+                            <button onclick="runExample(2)">
+                                RUN
+                            </button>
+
+                        </div>
+
+                        <textarea
+                            id="code2"
+                            spellcheck="false"
+                        >.box {
+    padding: 25px;
+    border: 4px solid #604c46;
+    margin: 20px;
+}</textarea>
+
+                    </div>
+
+
+                    <div class="result-label">
+                        LIVE RESULT
+                    </div>
+
+                    <iframe
+                        id="preview2"
+                        class="preview"
+                        title="CSS box model preview"
+                    ></iframe>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================================================= -->
+        <!-- PAGE 3 -->
+        <!-- ================================================= -->
+
+        <section
+            class="lesson-page"
+            id="page3"
+        >
+
+            <div class="page-heading">
+
+                <span class="chapter">
+                    CHAPTER III
+                </span>
+
+                <h1>
+                    Give the Crew Room
+                </h1>
+
+                <p>
+                    Padding creates space inside
+                    your box.
+                </p>
+
+            </div>
+
+
+            <div class="lesson-content">
+
+                <div class="lesson-text">
+
+                    <h2>
+                        Padding — Space Inside
+                    </h2>
+
+                    <p>
+                        Padding is the space between the
+                        content and the border of an element.
+                    </p>
+
+
+                    <div class="property-block">
+
+                        <h3>
+                            <code>padding</code>
+                        </h3>
+
+                        <pre><code>.box {
+    padding: 20px;
+}</code></pre>
+
+                        <p>
+                            This adds 20 pixels of space
+                            around the content on all four
+                            sides.
+                        </p>
+
+                        <p>
+                            Increase the value and the
+                            content moves farther away
+                            from the border.
+                        </p>
+
+                        <p class="codyssey-note">
+                            Padding is space INSIDE the box.
+                        </p>
+
+                    </div>
+
+
+                    <div class="property-block">
+
+                        <h3>
+                            Different sides
+                        </h3>
+
+                        <pre><code>.box {
+    padding-top: 30px;
+    padding-right: 10px;
+    padding-bottom: 20px;
+    padding-left: 40px;
+}</code></pre>
+
+                        <p>
+                            You can control each side
+                            separately when you need to.
+                        </p>
+
+                    </div>
+
+
+                    <h3>
+                        Experiment
+                    </h3>
+
+                    <p>
+                        Try changing
+                        <code>padding: 20px</code>
+                        to <code>5px</code>,
+                        <code>40px</code>, or
+                        <code>60px</code>.
+                    </p>
+
+                </div>
+
+
+                <div class="interactive-example">
+
+                    <div class="terminal">
+
+                        <div class="terminal-top">
+
+                            <span class="terminal-title">
+                                CSS TERMINAL
+                            </span>
+
+                            <button onclick="runExample(3)">
+                                RUN
+                            </button>
+
+                        </div>
+
+                        <textarea
+                            id="code3"
+                            spellcheck="false"
+                        >.box {
+    padding: 25px;
+}</textarea>
+
+                    </div>
+
+
+                    <div class="result-label">
+                        LIVE RESULT
+                    </div>
+
+                    <iframe
+                        id="preview3"
+                        class="preview"
+                        title="CSS padding preview"
+                    ></iframe>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================================================= -->
+        <!-- PAGE 4 -->
+        <!-- ================================================= -->
+
+        <section
+            class="lesson-page"
+            id="page4"
+        >
+
+            <div class="page-heading">
+
+                <span class="chapter">
+                    CHAPTER IV
+                </span>
+
+                <h1>
+                    Build the Edge
+                </h1>
+
+                <p>
+                    The border marks where your
+                    box begins and ends.
+                </p>
+
+            </div>
+
+
+            <div class="lesson-content">
+
+                <div class="lesson-text">
+
+                    <h2>
+                        Border — The Edge of the Box
+                    </h2>
+
+                    <p>
+                        A border surrounds the content
+                        and padding of an element.
+                    </p>
+
+
+                    <div class="property-block">
+
+                        <h3>
+                            <code>border</code>
+                        </h3>
+
+                        <pre><code>.box {
+    border: 3px solid black;
+}</code></pre>
+
+                        <p>
+                            The border has three important
+                            parts:
+                        </p>
+
+                        <p>
+                            <strong>3px</strong> is the width.
+                            <strong>solid</strong> is the style.
+                            <strong>black</strong> is the color.
+                        </p>
+
+                    </div>
+
+
+                    <div class="property-block">
+
+                        <h3>
+                            Border styles
+                        </h3>
+
+                        <p>
+                            Borders can have different
+                            styles such as:
+                        </p>
+
+                        <pre><code>solid
+dashed
+dotted</code></pre>
+
+                    </div>
+
+
+                    <h3>
+                        Experiment
+                    </h3>
+
+                    <p>
+                        Change the border width or try
+                        <code>dashed</code> instead of
+                        <code>solid</code>.
+                    </p>
+
+                    <p class="codyssey-note">
+                        The border is the wall around
+                        your ship's deck.
+                    </p>
+
+                </div>
+
+
+                <div class="interactive-example">
+
+                    <div class="terminal">
+
+                        <div class="terminal-top">
+
+                            <span class="terminal-title">
+                                CSS TERMINAL
+                            </span>
+
+                            <button onclick="runExample(4)">
+                                RUN
+                            </button>
+
+                        </div>
+
+                        <textarea
+                            id="code4"
+                            spellcheck="false"
+                        >.box {
+    padding: 25px;
+    border: 4px solid #604c46;
+}</textarea>
+
+                    </div>
+
+
+                    <div class="result-label">
+                        LIVE RESULT
+                    </div>
+
+                    <iframe
+                        id="preview4"
+                        class="preview"
+                        title="CSS border preview"
+                    ></iframe>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================================================= -->
+        <!-- PAGE 5 -->
+        <!-- ================================================= -->
+
+        <section
+            class="lesson-page"
+            id="page5"
+        >
+
+            <div class="page-heading">
+
+                <span class="chapter">
+                    CHAPTER V
+                </span>
+
+                <h1>
+                    Leave Room to Sail
+                </h1>
+
+                <p>
+                    Now let's move outside the box.
+                </p>
+
+            </div>
+
+
+            <div class="lesson-content">
+
+                <div class="lesson-text">
+
+                    <h2>
+                        Margin — Space Outside
+                    </h2>
+
+                    <p>
+                        Margin creates space outside
+                        an element's border.
+                    </p>
+
+                    <p>
+                        Unlike padding, margin does not
+                        create space inside the box.
+                        It separates the box from other
+                        elements.
+                    </p>
+
+
+                    <div class="property-block">
+
+                        <h3>
+                            <code>margin</code>
+                        </h3>
+
+                        <pre><code>.box {
+    margin: 20px;
+}</code></pre>
+
+                        <p>
+                            This creates 20 pixels of
+                            space around the outside
+                            of the box.
+                        </p>
+
+                        <p class="codyssey-note">
+                            Padding gives the sailor room
+                            inside. Margin gives the ships
+                            room between each other.
+                        </p>
+
+                    </div>
+
+
+                    <div class="property-block">
+
+                        <h3>
+                            Separate sides
+                        </h3>
+
+                        <pre><code>.box {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}</code></pre>
+
+                        <p>
+                            Just like padding, you can
+                            control each side separately.
+                        </p>
+
+                    </div>
+
+
+                    <h3>
+                        Padding or margin?
+                    </h3>
+
+                    <p>
+                        Ask yourself:
+                    </p>
+
+                    <p>
+                        <strong>
+                            Is the space inside the box?
+                        </strong>
+                        → Padding.
+                    </p>
+
+                    <p>
+                        <strong>
+                            Is the space outside the box?
+                        </strong>
+                        → Margin.
+                    </p>
+
+                </div>
+
+
+                <div class="interactive-example">
+
+                    <div class="terminal">
+
+                        <div class="terminal-top">
+
+                            <span class="terminal-title">
+                                CSS TERMINAL
+                            </span>
+
+                            <button onclick="runExample(5)">
+                                RUN
+                            </button>
+
+                        </div>
+
+                        <textarea
+                            id="code5"
+                            spellcheck="false"
+                        >.box {
+    margin: 30px;
+}</textarea>
+
+                    </div>
+
+
+                    <div class="result-label">
+                        LIVE RESULT
+                    </div>
+
+                    <iframe
+                        id="preview5"
+                        class="preview tall"
+                        title="CSS margin preview"
+                    ></iframe>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================================================= -->
+        <!-- PAGE 6 -->
+        <!-- ================================================= -->
+
+        <section
+            class="lesson-page"
+            id="page6"
+        >
+
+            <div class="page-heading">
+
+                <span class="chapter">
+                    CHAPTER VI
+                </span>
+
+                <h1>
+                    Prepare the Fleet
+                </h1>
+
+                <p>
+                    You know what a box is.
+                    Now let's control its size
+                    and prepare to arrange the fleet.
+                </p>
+
+            </div>
+
+
+            <div class="lesson-content final-content">
+
+                <div class="lesson-text">
+
+                    <h2>
+                        Size Your Box
+                    </h2>
+
+                    <p>
+                        CSS gives us properties such as
+                        <code>width</code> and
+                        <code>height</code> to control
+                        the size of an element.
+                    </p>
+
+
+                    <div class="property-block">
+
+                        <h3>
+                            <code>width</code> and
+                            <code>height</code>
+                        </h3>
+
+                        <pre><code>.box {
+    width: 220px;
+    height: 120px;
+}</code></pre>
+
+                        <p>
+                            Width controls how wide the
+                            box is, while height controls
+                            how tall it is.
+                        </p>
+
+                    </div>
+
+
+                    <div class="property-block">
+
+                        <h3>
+                            Put everything together
+                        </h3>
+
+                        <p>
+                            You now know the basic pieces
+                            of a CSS box:
+                        </p>
+
+                        <p>
+                            <strong>Content</strong> —
+                            what's inside.
+                        </p>
+
+                        <p>
+                            <strong>Padding</strong> —
+                            space inside.
+                        </p>
+
+                        <p>
+                            <strong>Border</strong> —
+                            the edge.
+                        </p>
+
+                        <p>
+                            <strong>Margin</strong> —
+                            space outside.
+                        </p>
+
+                        <p>
+                            <strong>Width & Height</strong> —
+                            the size.
+                        </p>
+
+                    </div>
+
+
+                    <div class="property-block">
+
+                        <h3>
+                            But there is one problem...
+                        </h3>
+
+                        <p>
+                            Imagine we have three boxes.
+                        </p>
+
+                        <pre><code>┌─────────┐
+│  Box 1  │
+└─────────┘
+
+┌─────────┐
+│  Box 2  │
+└─────────┘
+
+┌─────────┐
+│  Box 3  │
+└─────────┘</code></pre>
+
+                        <p>
+                            What if we want them to sail
+                            side by side?
+                        </p>
+
+                        <pre><code>┌─────────┐ ┌─────────┐ ┌─────────┐
+│  Box 1  │ │  Box 2  │ │  Box 3  │
+└─────────┘ └─────────┘ └─────────┘</code></pre>
+
+                    </div>
+
+
+                    <div class="property-block">
+
+                        <h3>
+                            Enter Flexbox
+                        </h3>
+
+                        <p>
+                            This is exactly the problem
+                            Flexbox helps us solve.
+                        </p>
+
+                        <pre><code>.crew {
+    display: flex;
+}</code></pre>
+
+                        <p>
+                            Flexbox gives us a way to
+                            arrange and control boxes
+                            inside a container.
+                        </p>
+
+                        <p class="codyssey-note">
+                            The ship is ready.
+                            The crew is ready.
+                            Your Flexbox voyage begins now.
+                        </p>
+
+                    </div>
+
+
+                    <h3>
+                        The voyage continues.
+                    </h3>
+
+                    <p>
+                        You now understand the basic
+                        building blocks of CSS.
+                        Next, we learn how to arrange them
+                        with Flexbox.
+                    </p>
+
+                </div>
+
+
+                <div class="interactive-example final-example">
+
+                    <div class="terminal">
+
+                        <div class="terminal-top">
+
+                            <span class="terminal-title">
+                                CSS TERMINAL
+                            </span>
+
+                            <button onclick="runExample(6)">
+                                RUN
+                            </button>
+
+                        </div>
+
+                        <textarea
+                            id="code6"
+                            spellcheck="false"
+                        >.crew {
+    display: flex;
+}</textarea>
+
+                    </div>
+
+
+                    <div class="result-label">
+                        LIVE RESULT
+                    </div>
+
+                    <iframe
+                        id="preview6"
+                        class="preview tall"
+                        title="Flexbox introduction preview"
+                    ></iframe>
+
+                </div>
+
+
+                <div class="final-action">
+
+                    <span class="final-mark">
+                        ✦
+                    </span>
+
+                    <h2>
+                        The voyage continues.
+                    </h2>
+
+                    <p>
+                        You understand the boxes.
+                        Now it's time to learn how
+                        to move the crew.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- ================================================= -->
+    <!-- NAVIGATION -->
+    <!-- ================================================= -->
+
+    <div class="lesson-navigation">
+
+        <button
+            id="backButton"
+            class="navigation-button"
+            onclick="previousStep()"
+        >
+             Back
+        </button>
+
+
+        <div class="chapter-progress">
+
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+
+        </div>
+
+
+        <button
+            id="nextButton"
+            class="navigation-button"
+            onclick="nextStep()"
+        >
+            Next 
+        </button>
+
+
+        <button
+            id="challengeNavButton"
+            class="navigation-button challenge-nav-button"
+            onclick="goToChallenge()"
+        >
+            Go to Challenge 
+        </button>
+
+    </div>
+
+
+
+    <script src="js/lesson1.js"></script>
+
+</body>
+
+</html>

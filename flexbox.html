@@ -1,0 +1,1585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Codyssey — Flexbox Lesson</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="css/flexbox.css">
+</head>
+
+<body class="step-1">
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">CODYSSEY</div>
+
+        <button class="map-button" onclick="returnToMap()">
+            Return to Map
+        </button>
+    </nav>
+
+
+    <!-- PROGRESS -->
+  
+
+    <main>
+
+
+        <!-- ================================================= -->
+        <!-- PAGE 1 -->
+        <!-- ================================================= -->
+
+        <section class="lesson-page active" id="page1">
+
+            <div class="page-heading">
+
+                <span class="chapter">CHAPTER I</span>
+
+                <h1>Begin the Voyage</h1>
+
+                <p>
+                    Before we can guide the crew, we need to turn the
+                    container into a Flexbox container.
+                </p>
+
+            </div>
+
+
+            <div class="lesson-content">
+
+                <div class="lesson-text">
+
+                    <h2>The Flexbox Crew</h2>
+
+                    <p>
+                        Flexbox is a layout system designed to arrange
+                        elements inside a container.
+                    </p>
+
+                    <p>
+                        Normally, block elements stack one underneath
+                        another. Flexbox lets us control how those
+                        elements are positioned, spaced, and aligned.
+                    </p>
+
+                    <p>
+                        We start by giving the parent container:
+                    </p>
+
+                    <div class="property-block">
+
+                        <h3><code>display: flex</code></h3>
+
+                        <p>
+                            This tells the browser:
+                            <strong>“This container is now a Flexbox.”</strong>
+                        </p>
+
+                        <p>
+                            Its direct children become <strong>flex items</strong>.
+                            These are the elements that Flexbox will arrange
+                            for us.
+                        </p>
+
+                        <p>
+                            By default, flex items are placed next to each
+                            other in a row.
+                        </p>
+
+                        <p class="codyssey-note">
+                            Think of it as preparing the ship's deck.
+                            Once the deck becomes a Flexbox, the crew can
+                            be arranged and given different positions.
+                        </p>
+
+                    </div>
+
+                    <h3>What should you expect?</h3>
+
+                    <p>
+                        In the example, the three crew members start
+                        appearing in a row instead of being stacked
+                        vertically.
+                    </p>
+
+                    <p>
+                        Try removing <code>display: flex</code> from the
+                        terminal and run the code. Then add it back.
+                        The difference should be immediately visible.
+                    </p>
+
+                </div>
+
+
+                <div class="interactive-example">
+
+                    <div class="terminal">
+
+                        <div class="terminal-top">
+
+                            <span class="terminal-title">
+                                CSS TERMINAL
+                            </span>
+
+                            <button onclick="runExample(1)">
+                                RUN
+                            </button>
+
+                        </div>
+
+                        <textarea
+                            id="code1"
+                            spellcheck="false"
+                        >.crew {
+    display: flex;
+}</textarea>
+
+                    </div>
+
+
+                    <div class="result-label">
+                        LIVE RESULT
+                    </div>
+
+                    <iframe
+                        id="preview1"
+                        class="preview"
+                        title="Flexbox preview"
+                    ></iframe>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================================================= -->
+        <!-- PAGE 2 -->
+        <!-- ================================================= -->
+
+        <section class="lesson-page" id="page2">
+
+            <div class="page-heading">
+
+                <span class="chapter">CHAPTER II</span>
+
+                <h1>Choose Your Direction</h1>
+
+                <p>
+                    A ship can change its course. So can a Flexbox layout.
+                </p>
+
+            </div>
+
+
+            <div class="lesson-content">
+
+                <div class="lesson-text">
+
+                    <h2>The Main Axis</h2>
+
+                    <p>
+                        Once an element becomes a Flexbox container,
+                        its items are arranged along a direction called
+                        the <strong>main axis</strong>.
+                    </p>
+
+                    <p>
+                        The <code>flex-direction</code> property decides
+                        which direction that axis follows.
+                    </p>
+
+
+                    <div class="property-block">
+
+                        <h3><code>row</code></h3>
+
+                        <p>
+                            This is the default direction.
+                            Items are placed from left to right.
+                        </p>
+
+                        <p class="codyssey-note">
+                            The crew sails across the deck.
+                        </p>
+
+                    </div>
+
+
+                    <div class="property-block">
+
+                        <h3><code>row-reverse</code></h3>
+
+                        <p>
+                            The items stay in a row, but their order
+                            is reversed.
+                        </p>
+
+                        <p>
+                            The first item moves to the right and the
+                            last item moves to the left.
+                        </p>
+
+                        <p class="codyssey-note">
+                            Same deck. New sailing direction.
+                        </p>
+
+                    </div>
+
+
+                    <div class="property-block">
+
+                        <h3><code>column</code></h3>
+
+                        <p>
+                            Items are arranged vertically from top
+                            to bottom.
+                        </p>
+
+                        <p class="codyssey-note">
+                            The crew now moves down the mast instead
+                            of across the deck.
+                        </p>
+
+                    </div>
+
+
+                    <div class="property-block">
+
+                        <h3><code>column-reverse</code></h3>
+
+                        <p>
+                            Items are arranged vertically, but from
+                            bottom to top.
+                        </p>
+
+                        <p>
+                            The direction is reversed compared with
+                            <code>column</code>.
+                        </p>
+
+                    </div>
+
+
+                    <h3>Try the four directions</h3>
+
+                    <p>
+                        Change the value of <code>flex-direction</code>
+                        in the terminal.
+                    </p>
+
+                    <p>
+                        Try:
+                        <code>row</code>,
+                        <code>row-reverse</code>,
+                        <code>column</code>,
+                        and
+                        <code>column-reverse</code>.
+                    </p>
+
+                    <p>
+                        Run the code after each change and watch the
+                        crew follow the new main axis.
+                    </p>
+
+                </div>
+
+
+                <div class="interactive-example">
+
+                    <div class="terminal">
+
+                        <div class="terminal-top">
+
+                            <span class="terminal-title">
+                                CSS TERMINAL
+                            </span>
+
+                            <button onclick="runExample(2)">
+                                RUN
+                            </button>
+
+                        </div>
+
+                        <textarea
+                            id="code2"
+                            spellcheck="false"
+                        >.crew {
+    display: flex;
+    flex-direction: row;
+}</textarea>
+
+                    </div>
+
+
+                    <div class="result-label">
+                        LIVE RESULT
+                    </div>
+
+                    <iframe
+                        id="preview2"
+                        class="preview"
+                        title="Flex direction preview"
+                    ></iframe>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================================================= -->
+        <!-- PAGE 3 -->
+        <!-- ================================================= -->
+
+        <section class="lesson-page" id="page3">
+
+            <div class="page-heading">
+
+                <span class="chapter">CHAPTER III</span>
+
+                <h1>Arrange the Crew</h1>
+
+                <p>
+                    Knowing the direction is only the beginning.
+                    Now we decide where the crew should gather.
+                </p>
+
+            </div>
+
+
+            <div class="lesson-content">
+
+                <div class="lesson-text">
+
+                    <h2><code>justify-content</code></h2>
+
+                    <p>
+                        The <code>justify-content</code> property controls
+                        how flex items are distributed along the
+                        <strong>main axis</strong>.
+                    </p>
+
+                    <p>
+                        If your crew is arranged in a row, this usually
+                        means controlling their horizontal position.
+                    </p>
+
+
+                    <div class="property-block">
+
+                        <h3><code>flex-start</code></h3>
+
+                        <p>
+                            Items gather at the beginning of the main axis.
+                        </p>
+
+                        <p>
+                            With a normal row, this means they stay
+                            toward the left side.
+                        </p>
+
+                        <p class="codyssey-note">
+                            The crew gathers at the beginning of the deck.
+                        </p>
+
+                    </div>
+
+
+                    <div class="property-block">
+
+                        <h3><code>center</code></h3>
+
+                        <p>
+                            Items move together into the center of
+                            the available space.
+                        </p>
+
+                        <p class="codyssey-note">
+                            The crew meets in the middle of the ship.
+                        </p>
+
+                    </div>
+
+
+                    <div class="property-block">
+
+                        <h3><code>flex-end</code></h3>
+
+                        <p>
+                            Items gather at the end of the main axis.
+                        </p>
+
+                        <p>
+                            In a normal row, they move toward the right.
+                        </p>
+
+                    </div>
+
+
+                    <div class="property-block">
+
+                        <h3><code>space-between</code></h3>
+
+                        <p>
+                            The first item moves to the beginning and
+                            the last item moves to the end.
+                        </p>
+
+                        <p>
+                            The remaining space is distributed evenly
+                            <strong>between</strong> the items.
+                        </p>
+
+                        <p class="codyssey-note">
+                            The crew spreads across the whole deck,
+                            but nobody gets extra space at the edges.
+                        </p>
+
+                    </div>
+
+
+                    <div class="property-block">
+
+                        <h3><code>space-around</code></h3>
+
+                        <p>
+                            Every item receives space around it.
+                        </p>
+
+                        <p>
+                            This creates space on both sides of each item.
+                            The space at the edges is smaller than the
+                            space between two neighboring items.
+                        </p>
+
+                    </div>
+
+
+                    <div class="property-block">
+
+                        <h3><code>space-evenly</code></h3>
+
+                        <p>
+                            The available space is divided equally
+                            between the items and the edges.
+                        </p>
+
+                        <p>
+                            This creates equal gaps everywhere.
+                        </p>
+
+                        <p class="codyssey-note">
+                            Everyone gets exactly the same amount of sea
+                            around them.
+                        </p>
+
+                    </div>
+
+
+                    <h3>Set the crew's position</h3>
+
+                    <p>
+                        Start with <code>flex-start</code> in the terminal.
+                        Then replace it with each value you learned.
+                    </p>
+
+                    <p>
+                        Run the code after every change and compare
+                        how the crew is distributed across the deck.
+                    </p>
+
+                </div>
+
+
+                <div class="interactive-example">
+
+                    <div class="terminal">
+
+                        <div class="terminal-top">
+
+                            <span class="terminal-title">
+                                CSS TERMINAL
+                            </span>
+
+                            <button onclick="runExample(3)">
+                                RUN
+                            </button>
+
+                        </div>
+
+                        <textarea
+                            id="code3"
+                            spellcheck="false"
+                        >.crew {
+    display: flex;
+    justify-content: flex-start;
+}</textarea>
+
+                    </div>
+
+
+                    <div class="result-label">
+                        LIVE RESULT
+                    </div>
+
+                    <iframe
+                        id="preview3"
+                        class="preview"
+                        title="Justify content preview"
+                    ></iframe>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================================================= -->
+        <!-- PAGE 4 -->
+        <!-- ================================================= -->
+
+        <section class="lesson-page" id="page4">
+
+            <div class="page-heading">
+
+                <span class="chapter">CHAPTER IV</span>
+
+                <h1>The Cross Axis</h1>
+
+                <p>
+                    Flexbox has another direction to control:
+                    the cross axis.
+                </p>
+
+            </div>
+
+
+            <div class="lesson-content">
+
+                <div class="lesson-text">
+
+                    <h2><code>align-items</code></h2>
+
+                    <p>
+                        We already learned that
+                        <code>justify-content</code> controls the
+                        main axis.
+                    </p>
+
+                    <p>
+                        <code>align-items</code> controls how the flex
+                        items are positioned along the
+                        <strong>cross axis</strong>.
+                    </p>
+
+                    <p>
+                        When the direction is a row, the cross axis
+                        runs vertically.
+                    </p>
+
+
+                    <div class="property-block">
+
+                        <h3><code>stretch</code></h3>
+
+                        <p>
+                            Items stretch across the cross axis when
+                            their cross-axis size is not already set.
+                        </p>
+
+                        <p>
+                            This is the default value.
+                        </p>
+
+                    </div>
+
+
+                    <div class="property-block">
+
+                        <h3><code>flex-start</code></h3>
+
+                        <p>
+                            Items move toward the beginning of the
+                            cross axis.
+                        </p>
+
+                        <p>
+                            With a row, this usually means toward
+                            the top.
+                        </p>
+
+                    </div>
+
+
+                    <div class="property-block">
+
+                        <h3><code>center</code></h3>
+
+                        <p>
+                            Items are centered along the cross axis.
+                        </p>
+
+                        <p class="codyssey-note">
+                            The crew lines up in the middle of the mast.
+                        </p>
+
+                    </div>
+
+
+                    <div class="property-block">
+
+                        <h3><code>flex-end</code></h3>
+
+                        <p>
+                            Items move toward the end of the cross axis.
+                        </p>
+
+                        <p>
+                            With a row, this usually means toward
+                            the bottom.
+                        </p>
+
+                    </div>
+
+
+                    <h2>One crew member can disagree</h2>
+
+                    <h3><code>align-self</code></h3>
+
+                    <p>
+                        Sometimes the whole crew should be aligned one
+                        way, but one particular item needs a different
+                        position.
+                    </p>
+
+                    <p>
+                        That is what <code>align-self</code> is for.
+                        It overrides <code>align-items</code> for
+                        one specific flex item.
+                    </p>
+
+                    <p>
+                        In the example, the whole crew is centered,
+                        but the hero is moved toward the start.
+                    </p>
+
+                    <p class="codyssey-note">
+                        The crew follows the captain's orders,
+                        but one sailor has their own position.
+                    </p>
+
+
+                    <h3>Experiment</h3>
+
+                    <p>
+                        Change <code>align-items: center</code> to
+                        <code>flex-start</code> or
+                        <code>flex-end</code>.
+                    </p>
+
+                    <p>
+                        Then change the hero's
+                        <code>align-self</code> value and watch how
+                        only that item reacts.
+                    </p>
+
+                </div>
+
+
+                <div class="interactive-example">
+
+                    <div class="terminal">
+
+                        <div class="terminal-top">
+
+                            <span class="terminal-title">
+                                CSS TERMINAL
+                            </span>
+
+                            <button onclick="runExample(4)">
+                                RUN
+                            </button>
+
+                        </div>
+
+                        <textarea
+                            id="code4"
+                            spellcheck="false"
+                        >.crew {
+    display: flex;
+    align-items: center;
+}
+
+.crew .hero {
+    align-self: flex-start;
+}</textarea>
+
+                    </div>
+
+
+                    <div class="result-label">
+                        LIVE RESULT
+                    </div>
+
+                    <iframe
+                        id="preview4"
+                        class="preview tall"
+                        title="Align items preview"
+                    ></iframe>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================================================= -->
+        <!-- PAGE 5 -->
+        <!-- ================================================= -->
+
+        <section class="lesson-page" id="page5">
+
+            <div class="page-heading">
+
+                <span class="chapter">CHAPTER V</span>
+
+                <h1>Make Room to Sail</h1>
+
+                <p>
+                    A good crew needs space. Flexbox gives us simple
+                    tools for controlling it.
+                </p>
+
+            </div>
+
+
+            <div class="lesson-content">
+
+                <div class="lesson-text">
+
+                    <h2><code>gap</code></h2>
+
+                    <p>
+                        The <code>gap</code> property creates space
+                        between flex items.
+                    </p>
+
+                    <p>
+                        For example:
+                    </p>
+
+                    <pre><code>gap: 20px;</code></pre>
+
+                    <p>
+                        means that Flexbox will place a 20 pixel gap
+                        between neighboring items.
+                    </p>
+
+                    <p>
+                        Unlike adding margins manually to each item,
+                        <code>gap</code> is designed specifically for
+                        spacing items in a layout.
+                    </p>
+
+                    <p class="codyssey-note">
+                        Think of it as leaving enough room between
+                        sailors so nobody steps on another sailor's feet.
+                    </p>
+
+
+                    <div class="property-block">
+
+                        <h3>Changing the gap</h3>
+
+                        <p>
+                            Try changing:
+                        </p>
+
+                        <pre><code>gap: 20px;</code></pre>
+
+                        <p>
+                            to:
+                        </p>
+
+                        <pre><code>gap: 5px;</code></pre>
+
+                        <p>
+                            or:
+                        </p>
+
+                        <pre><code>gap: 40px;</code></pre>
+
+                        <p>
+                            A larger value creates more space between
+                            the crew members.
+                        </p>
+
+                    </div>
+
+
+                    <h2><code>flex-wrap</code></h2>
+
+                    <p>
+                        What happens when there are too many items to
+                        fit on one line?
+                    </p>
+
+                    <p>
+                        <code>flex-wrap</code> decides whether the items
+                        are allowed to move onto another line.
+                    </p>
+
+
+                    <div class="property-block">
+
+                        <h3><code>nowrap</code></h3>
+
+                        <p>
+                            This is the default.
+                            All items try to remain on a single line.
+                        </p>
+
+                        <p>
+                            If there is not enough space, the items may
+                            shrink or overflow depending on the other
+                            CSS rules.
+                        </p>
+
+                    </div>
+
+
+                    <div class="property-block">
+
+                        <h3><code>wrap</code></h3>
+
+                        <p>
+                            Items are allowed to move onto a new line
+                            when there is not enough room.
+                        </p>
+
+                        <p class="codyssey-note">
+                            When one deck becomes too crowded,
+                            the crew moves onto the next deck.
+                        </p>
+
+                    </div>
+
+
+                    <h3>Try it yourself</h3>
+
+                    <p>
+                        First change <code>gap</code> and observe the
+                        spacing.
+                    </p>
+
+                    <p>
+                        Then change
+                        <code>flex-wrap: nowrap</code>
+                        to
+                        <code>flex-wrap: wrap</code>.
+                    </p>
+
+                    <p>
+                        Run the code and make the preview smaller
+                        if needed to see the crew move onto multiple
+                        lines.
+                    </p>
+
+                </div>
+
+
+                <div class="interactive-example">
+
+                    <div class="terminal">
+
+                        <div class="terminal-top">
+
+                            <span class="terminal-title">
+                                CSS TERMINAL
+                            </span>
+
+                            <button onclick="runExample(5)">
+                                RUN
+                            </button>
+
+                        </div>
+
+                        <textarea
+                            id="code5"
+                            spellcheck="false"
+                        >.crew {
+    display: flex;
+    gap: 20px;
+    flex-wrap: nowrap;
+}</textarea>
+
+                    </div>
+
+
+                    <div class="result-label">
+                        LIVE RESULT
+                    </div>
+
+                    <iframe
+                        id="preview5"
+                        class="preview"
+                        title="Gap and wrap preview"
+                    ></iframe>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================================================= -->
+        <!-- PAGE 6 -->
+        <!-- ================================================= -->
+
+        <section class="lesson-page" id="page6">
+
+            <div class="page-heading">
+
+                <span class="chapter">CHAPTER VI</span>
+
+                <h1>Individual Powers</h1>
+
+                <p>
+                    The whole crew can follow the same rules.
+                    But sometimes one flex item needs its own command.
+                </p>
+
+            </div>
+
+
+            <div class="lesson-content">
+
+                <div class="lesson-text">
+
+                    <h2>Control One Item</h2>
+
+                    <p>
+                        So far, most of our properties have controlled
+                        the crew as a group.
+                    </p>
+
+                    <p>
+                        Now we can give individual flex items their own
+                        instructions.
+                    </p>
+
+
+                    <!-- ORDER -->
+
+                    <div class="property-block">
+
+                        <h3><code>order</code> — Change the position</h3>
+
+                        <p>
+                            Every flex item starts with an
+                            <code>order</code> value of
+                            <strong>0</strong>.
+                        </p>
+
+                        <p>
+                            Items with smaller order values appear
+                            earlier. Items with larger values appear
+                            later.
+                        </p>
+
+                        <pre><code>.archer {
+    order: -1;
+}</code></pre>
+
+                        <p>
+                            Here, the archer gets <code>-1</code>,
+                            which places it before the items whose
+                            order is still <code>0</code>.
+                        </p>
+
+                        <p>
+                            Try changing <code>-1</code> to
+                            <code>1</code> or <code>2</code>.
+                            The archer will move after the other crew
+                            members.
+                        </p>
+
+                        <p class="codyssey-note">
+                            Think of <code>order</code> as changing
+                            someone's place in the line.
+                        </p>
+
+                    </div>
+
+
+                    <!-- FLEX GROW -->
+
+                    <div class="property-block">
+
+                        <h3><code>flex-grow</code> — Claim extra space</h3>
+
+                        <p>
+                            <code>flex-grow</code> controls how an item
+                            receives <strong>extra available space</strong>
+                            inside the container.
+                        </p>
+
+                        <pre><code>.hero {
+    flex-grow: 1;
+}</code></pre>
+
+                        <p>
+                            A value of <code>0</code> means the item
+                            does not grow to take extra space.
+                        </p>
+
+                        <p>
+                            A value greater than <code>0</code> allows
+                            it to grow.
+                        </p>
+
+                        <p>
+                            Try changing:
+                        </p>
+
+                        <pre><code>flex-grow: 1;</code></pre>
+
+                        <p>
+                            to:
+                        </p>
+
+                        <pre><code>flex-grow: 2;</code></pre>
+
+                        <p>
+                            The item will receive a larger share of
+                            the available extra space compared with
+                            items with a smaller grow value.
+                        </p>
+
+                        <p class="codyssey-note">
+                            The ship has extra room. How much of it
+                            does each sailor get?
+                        </p>
+
+                    </div>
+
+
+                    <!-- FLEX SHRINK -->
+
+                    <div class="property-block">
+
+                        <h3><code>flex-shrink</code> — Give up space</h3>
+
+                        <p>
+                            Sometimes there is not enough room for every
+                            item at its preferred size.
+                        </p>
+
+                        <p>
+                            <code>flex-shrink</code> controls how much
+                            an item is allowed to become smaller.
+                        </p>
+
+                        <pre><code>.hero {
+    flex-shrink: 1;
+}</code></pre>
+
+                        <p>
+                            The default value is <code>1</code>,
+                            meaning the item is allowed to shrink.
+                        </p>
+
+                        <p>
+                            Try:
+                        </p>
+
+                        <pre><code>flex-shrink: 0;</code></pre>
+
+                        <p>
+                            Now the item will not shrink because of
+                            Flexbox's shrinking process.
+                        </p>
+
+                        <p class="codyssey-note">
+                            The ship is getting crowded.
+                            Who is willing to make themselves smaller?
+                        </p>
+
+                    </div>
+
+
+                    <!-- FLEX BASIS -->
+
+                    <div class="property-block">
+
+                        <h3><code>flex-basis</code> — Set the starting size</h3>
+
+                        <p>
+                            <code>flex-basis</code> defines an item's
+                            initial size along the main axis before
+                            remaining space is distributed.
+                        </p>
+
+                        <pre><code>.hero {
+    flex-basis: 150px;
+}</code></pre>
+
+                        <p>
+                            If the crew is arranged in a row,
+                            this usually affects the item's starting
+                            width.
+                        </p>
+
+                        <p>
+                            Try changing <code>150px</code> to
+                            <code>250px</code>.
+                        </p>
+
+                        <p>
+                            The hero will begin with more space before
+                            Flexbox calculates how the remaining space
+                            should be distributed.
+                        </p>
+
+                        <p class="codyssey-note">
+                            Before the crew settles into position,
+                            how much deck space does this sailor
+                            start with?
+                        </p>
+
+                    </div>
+
+
+                    <!-- ALIGN SELF -->
+
+                    <div class="property-block">
+
+                        <h3><code>align-self</code> — Move one item</h3>
+
+                        <p>
+                            <code>align-self</code> lets one flex item
+                            have a different alignment from the rest
+                            of the crew.
+                        </p>
+
+                        <p>
+                            It overrides the container's
+                            <code>align-items</code> value for that
+                            particular item.
+                        </p>
+
+                        <pre><code>.archer {
+    align-self: flex-end;
+}</code></pre>
+
+                        <p>
+                            Try:
+                        </p>
+
+                        <pre><code>align-self: flex-start;</code></pre>
+
+                        <p>
+                            Then try:
+                        </p>
+
+                        <pre><code>align-self: center;</code></pre>
+
+                        <p>
+                            Watch how only the archer changes position
+                            while the other crew members stay aligned.
+                        </p>
+
+                        <p class="codyssey-note">
+                            The crew follows one formation,
+                            but one sailor can choose their own place.
+                        </p>
+
+                    </div>
+
+
+                    <h3>Now experiment</h3>
+
+                    <p>
+                        The terminal below contains an example using
+                        <code>order</code>.
+                    </p>
+
+                    <p>
+                        You can replace it with any of the properties
+                        you just learned and see how an individual
+                        flex item responds.
+                    </p>
+
+                    <p>
+                        Change one property at a time.
+                        Run the code.
+                        Watch the result.
+                        Then try another value.
+                    </p>
+
+                </div>
+
+
+                <div class="interactive-example">
+
+                    <div class="terminal">
+
+                        <div class="terminal-top">
+
+                            <span class="terminal-title">
+                                CSS TERMINAL
+                            </span>
+
+                            <button onclick="runExample(6)">
+                                RUN
+                            </button>
+
+                        </div>
+
+                        <textarea
+                            id="code6"
+                            spellcheck="false"
+                        >.crew {
+    display: flex;
+    gap: 15px;
+}
+
+.archer {
+    order: -1;
+}</textarea>
+
+                    </div>
+
+
+                    <div class="result-label">
+                        LIVE RESULT
+                    </div>
+
+                    <iframe
+                        id="preview6"
+                        class="preview"
+                        title="Individual flex item preview"
+                    ></iframe>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================================================= -->
+        <!-- PAGE 7 -->
+        <!-- ================================================= -->
+
+        <section class="lesson-page" id="page7">
+
+            <div class="page-heading">
+
+                <span class="chapter">CHAPTER VII</span>
+
+                <h1>Sail Every Screen</h1>
+
+                <p>
+                    A real website must work beyond one screen.
+                    Let's combine Flexbox with responsive design.
+                </p>
+
+            </div>
+
+
+            <div class="lesson-content final-content">
+
+                <div class="lesson-text">
+
+                    <h2>Responsive Flexbox</h2>
+
+                    <p>
+                        People can open a website on a large monitor,
+                        a laptop, a tablet, or a phone.
+                    </p>
+
+                    <p>
+                        A layout that looks good on a wide screen may
+                        become crowded on a small one.
+                    </p>
+
+                    <p>
+                        Responsive design allows us to change the layout
+                        depending on the available screen space.
+                    </p>
+
+
+                    <div class="property-block">
+
+                        <h3>Changing direction</h3>
+
+                        <p>
+                            A navigation bar might work well as a row
+                            when there is plenty of horizontal space.
+                        </p>
+
+                        <pre><code>.navbar-demo {
+    display: flex;
+    flex-direction: row;
+}</code></pre>
+
+                        <p>
+                            On a smaller screen, we can change the
+                            direction to a column.
+                        </p>
+
+                        <pre><code>.navbar-demo {
+    flex-direction: column;
+}</code></pre>
+
+                        <p class="codyssey-note">
+                            The ship has a wide deck at sea,
+                            but when space becomes tight,
+                            the crew changes formation.
+                        </p>
+
+                    </div>
+
+
+                    <div class="property-block">
+
+                        <h3><code>@media</code> — React to screen size</h3>
+
+                        <p>
+                            A media query lets us apply CSS only when
+                            a certain condition is true.
+                        </p>
+
+                        <pre><code>@media (max-width: 600px) {
+    .navbar-demo {
+        flex-direction: column;
+    }
+}</code></pre>
+
+                        <p>
+                            Here, the rule applies when the viewport
+                            is <strong>600px wide or smaller</strong>.
+                        </p>
+
+                        <p>
+                            On a large screen, the navigation remains
+                            in a row.
+                            On a smaller screen, it becomes a column.
+                        </p>
+
+                    </div>
+
+
+                    <div class="property-block">
+
+                        <h3>Try the viewport</h3>
+
+                        <p>
+                            Use the <strong>DESKTOP</strong> and
+                            <strong>MOBILE</strong> buttons to change
+                            the preview size.
+                        </p>
+
+                        <p>
+                            Then edit the media query in the terminal.
+                            Try changing <code>600px</code> to another
+                            value and observe when the layout changes.
+                        </p>
+
+                        <p>
+                            You can also experiment with
+                            <code>flex-direction</code>,
+                            <code>gap</code>, and
+                            <code>align-items</code> inside the media query.
+                        </p>
+
+                    </div>
+
+
+                    <h3>Put it all together</h3>
+
+                    <p>
+                        Responsive layouts are not a completely different
+                        kind of Flexbox. They are simply Flexbox rules
+                        that change when the available space changes.
+                    </p>
+
+                    <p>
+                        This is what makes Flexbox useful for real websites:
+                        the same layout can adapt to the screen instead
+                        of forcing everything into one fixed arrangement.
+                    </p>
+
+                </div>
+
+
+                <div class="interactive-example final-example">
+
+                    <div class="viewport-controls">
+
+                        <button onclick="setViewport('desktop')">
+                            DESKTOP
+                        </button>
+
+                        <button onclick="setViewport('mobile')">
+                            MOBILE
+                        </button>
+
+                    </div>
+
+
+                    <div class="terminal">
+
+                        <div class="terminal-top">
+
+                            <span class="terminal-title">
+                                CSS TERMINAL
+                            </span>
+
+                            <button onclick="runExample(7)">
+                                RUN
+                            </button>
+
+                        </div>
+
+                        <textarea
+                            id="code7"
+                            spellcheck="false"
+                        >.navbar-demo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.links {
+    display: flex;
+    gap: 20px;
+}
+
+@media (max-width: 600px) {
+    .navbar-demo {
+        flex-direction: column;
+    }
+
+    .links {
+        flex-direction: column;
+        align-items: center;
+    }
+}</textarea>
+
+                    </div>
+
+
+                    <div class="result-label">
+                        LIVE RESULT
+                    </div>
+
+
+                    <div class="responsive-frame">
+
+                        <iframe
+                            id="preview7"
+                            class="preview responsive-preview"
+                            title="Responsive Flexbox preview"
+                        ></iframe>
+
+                    </div>
+
+                </div>
+
+
+                <div class="final-action">
+
+                    <span class="final-mark">✦</span>
+
+                    <h2>The voyage continues.</h2>
+
+                    <p>
+                        You now know the foundations of Flexbox.
+                        The next step is to use them yourself.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- NAVIGATION -->
+
+    <div class="lesson-navigation">
+
+        <button
+            id="backButton"
+            class="navigation-button"
+            onclick="previousStep()"
+        >
+             Back
+        </button>
+
+
+        <div class="chapter-progress">
+
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+
+        </div>
+
+
+        <button
+            id="nextButton"
+            class="navigation-button"
+            onclick="nextStep()"
+        >
+            Next 
+        </button>
+
+
+        <button
+            id="challengeNavButton"
+            class="navigation-button challenge-nav-button"
+            onclick="goToChallenge()"
+        >
+            Go to Challenge 
+        </button>
+
+    </div>
+
+
+    <script src="js/flexbox.js"></script>
+
+</body>
+</html>

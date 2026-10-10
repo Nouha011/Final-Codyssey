@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Codyssey Map</title>
+
+    <link rel="stylesheet" href="css/map.css">
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=DM+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            CODYSSEY
+        </div>
+
+        <button class="logout-button" id="logoutButton">
+            Log Out
+        </button>
+
+    </nav>
+
+
+    <!-- =========================
+         MAP
+    ========================== -->
+
+    <main class="map-page">
+
+
+        <!-- =========================
+             ROUTE
+        ========================== -->
+
+        <svg class="voyage-route"
+            viewBox="0 0 1000 600"
+            preserveAspectRatio="none">
+
+            <!-- Main curved route -->
+
+            <path
+                d="
+                    M 150 350
+                    C 240 300, 260 420, 370 390
+                    S 500 260, 600 330
+                    S 760 440, 850 280
+                "
+                class="route-line"
+            />
+
+        </svg>
+
+
+        <!-- =========================
+             DESTINATION 1
+             TROY
+        ========================== -->
+
+        <button
+            class="destination destination-troy"
+            data-page="lesson.html">
+
+            <span class="pin">
+                <span class="pin-center"></span>
+            </span>
+
+            <span class="destination-name">
+                TROY 
+            </span>
+
+        </button>
+
+
+        <!-- =========================
+             DESTINATION 2
+             CYCLOPS
+        ========================== -->
+
+        <button
+            class="destination destination-cyclops"
+            data-page="cyclops.html">
+
+            <span class="pin">
+                <span class="pin-center"></span>
+            </span>
+
+            <span class="destination-name">
+                CYCLOPS
+            </span>
+
+        </button>
+
+
+        <!-- =========================
+             DESTINATION 3
+             SIRENS
+        ========================== -->
+
+        <button
+            class="destination destination-sirens"
+            data-page="sirens.html">
+
+            <span class="pin">
+                <span class="pin-center"></span>
+            </span>
+
+            <span class="destination-name">
+                SIRENS
+            </span>
+
+        </button>
+
+
+        <!-- =========================
+             DESTINATION 4
+             ITHACA
+        ========================== -->
+
+        <button
+            class="destination destination-ithaca"
+            data-page="ithaca.html">
+
+            <span class="pin">
+                <span class="pin-center"></span>
+            </span>
+
+            <span class="destination-name">
+                ITHACA
+            </span>
+
+        </button>
+
+
+    </main>
+
+
+    <script src="js/map.js"></script>
+
+</body>
+
+</html>
