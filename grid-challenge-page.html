@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Grid Challenge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    height: 100%;
+  }
+  body {
+    font-family: 'Cinzel', serif;
+    color: #f2e6c9;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-image: url('images/Back1.png');
+    background-size: cover;
+    background-position: center;
+  }
+
+   .vignette {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 100;
+      /* above everything else */
+      pointer-events: none;
+      /* clicks pass through */
+      background: linear-gradient(
+          /* top to bottom */
+          180deg,
+          rgba(0, 0, 0, 0.6) 0%,
+          rgba(0, 0, 0, 0.1) 10%,
+          rgba(0, 0, 0, 0) 20%),
+        linear-gradient(
+          /*bottom to top */
+          0deg,
+          rgba(0, 0, 0, 0.6) 0%,
+          rgba(0, 0, 0, 0.1) 10%,
+          rgba(0, 0, 0, 0) 20%);
+
+    }
+
+  /* ---------- HEADER ---------- */
+  #header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 40px;
+  }
+ .nav-label {
+      font-size: 16px;
+      letter-spacing: 2px;
+      font-weight: 600;
+      cursor: pointer;
+      border-bottom: 1px solid #d8c48f;
+      padding-bottom: 4px;
+      border-top: 1px solid #d8c48f;
+      padding-top: 4px;
+      color: #f2e6c9;
+      z-index: 1000;
+    }
+
+    .nav-label a {
+        font-size: 16px;
+      letter-spacing: 2px;
+      font-weight: 600;
+      cursor: pointer;
+      color: #f2e6c9;
+        text-decoration: none;
+    }
+
+    .nav-label a:hover {
+      color: #fff3d6;
+      text-shadow:
+        0 0 5px rgba(228, 205, 167, 0.8),
+        0 0 15px rgba(228, 205, 167, 0.5),
+        0 0 25px rgba(228, 205, 167, 0.3);
+    }
+
+  /* ---------- BODY LAYOUT ---------- */
+  #body {
+    flex: 1;
+    display: flex;
+    padding: 10px 40px 40px 40px;
+    gap: 30px;
+    overflow: hidden;
+    min-height: 0;
+  }
+
+  /* ---------- LEFT PANEL ---------- */
+  #left-panel {
+    width: 42%;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  #challenge-title {
+    font-size: 24px;
+    margin: 0 0 10px 0;
+    font-weight: 700;
+  }
+  #description {
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: #f2e6c9;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  /* ---------- TERMINAL ---------- */
+  #terminal {
+    background: rgba(40, 30, 34, 0.55);
+    border-radius: 8px;
+    padding: 14px 16px;
+    min-height: 200px;
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 15px;
+    position: relative;
+    backdrop-filter: blur(2px);
+  }
+  #run-btn {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    background: rgba(216,196,143,0.85);
+    color: #3a232b;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 16px;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: bold;
+    font-size: 13px;
+    cursor: pointer;
+  }
+  #run-btn:hover { background: #e8d9b0; }
+
+  #code-lines {
+    margin-top: 34px;
+    line-height: 26px;
+  }
+  .code-line { white-space: pre; }
+  .property { color: #9fce6a; }
+  .value { color: #d4d4d4; }
+  .punct { color: #d4d4d4; }
+
+  #css-input {
+    background: rgba(255,255,255,0.08);
+    border: none;
+    border-radius: 3px;
+    color: #f2e6c9;
+    font-family: inherit;
+    font-size: 15px;
+    padding: 2px 8px;
+    outline: none;
+    width: 100%;
+    max-width: 280px;
+  }
+  #css-input::placeholder { color: #cbb98a; }
+
+  #feedback {
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 12px;
+  }
+  #feedback.success { color: #7ec97e; }
+  #feedback.fail { color: #e08a7d; }
+
+  #left-panel-footer {
+    margin-top: auto;
+  }
+
+  #footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 40px 30px 40px;
+  }
+  .nav-btn {
+    background: none;
+    border: none;
+    color: #f2e6c9;
+    font-family: 'Cinzel', serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    cursor: pointer;
+    border-bottom: 1px solid #d8c48f;
+    padding-bottom: 3px;
+  }
+  .nav-btn:disabled {
+    opacity: 0.3;
+    cursor: default;
+    border-bottom-color: transparent;
+  }
+  .nav-btn:hover:not(:disabled) { color: #ffe9b0; }
+
+  /* ---------- RIGHT PANEL (grid playground) ---------- */
+  #playground-frame {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: rgba(60, 45, 40, 0.35);
+    border: 6px solid #7a5a3a;
+    border-radius: 10px;
+    box-shadow: inset 0 0 0 2px rgba(216,196,143,0.4);
+  }
+  #grid-playground {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 0;
+    width: 100%;
+    max-width: 480px;
+    aspect-ratio: 4 / 3;
+  }
+  .tile {
+    background-size: cover;
+    background-position: center;
+    border: 1px solid rgba(90, 65, 40, 0.6);
+  }
+</style>
+</head>
+<body>
+
+  <div id="header">
+    <div class="nav-label"><a href="lesson.html">Lesson</a></div>
+    <div class="nav-label"><a href="Map.html">Map</a></div>
+  </div>
+  <div class="vignette"></div>
+
+  <div id="body">
+    <div id="left-panel">
+      <h1 id="challenge-title">Challenge 1</h1>
+      <div id="description"></div>
+
+      <div id="terminal">
+        <button id="run-btn" onclick="runCheck()">Run</button>
+        <div id="code-lines">
+          <div class="code-line"><span class="property">#field</span><span class="punct">{</span></div>
+          <div class="code-line"><span class="punct">/* Type your answer */</span></div>
+          <div class="code-line"><input type="text" id="css-input" placeholder=""></div>
+          <div class="code-line"><span class="punct">}</span></div>
+        </div>
+        <div id="feedback"></div>
+      </div>
+
+      <div id="left-panel-footer"></div>
+    </div>
+
+    <div id="playground-frame">
+      <div id="grid-playground"></div>
+    </div>
+  </div>
+
+  <div id="footer">
+    <button class="nav-btn" id="back-btn" onclick="prevLevel()">Back</button>
+    <button class="nav-btn" id="next-btn" onclick="nextLevel()">Next</button>
+  </div>
+
+<script>
+// grid is always 4 columns x 3 rows, cells addressed [row][col], 1-indexed to match CSS grid line numbering
+const COLS = 4;
+const ROWS = 3;
+
+const levels = [
+  {
+    title: "Challenge 1",
+    description: "Move the knight to his weapon using grid-column.",
+    knightStart: { col: 1, row: 1 },
+    targetCells: [{ col: 3, row: 1 }],
+    check: (css) => /grid-column\s*:\s*3\s*;?/.test(css),
+    apply: { gridColumn: "3", gridRow: "1" }
+  },
+  {
+    title: "Challenge 2",
+    description: "Move the knight to his weapon using grid-row.",
+    knightStart: { col: 1, row: 1 },
+    targetCells: [{ col: 1, row: 3 }],
+    check: (css) => /grid-row\s*:\s*3\s*;?/.test(css),
+    apply: { gridColumn: "1", gridRow: "3" }
+  },
+  {
+    title: "Challenge 3",
+    description: "Move the knight to his weapon using both grid-column and grid-row.",
+    knightStart: { col: 1, row: 1 },
+    targetCells: [{ col: 3, row: 2 }],
+    check: (css) => /grid-column\s*:\s*3\s*;?/.test(css) && /grid-row\s*:\s*2\s*;?/.test(css),
+    apply: { gridColumn: "3", gridRow: "2" }
+  },
+  {
+    title: "Challenge 4",
+    description: "The weapon rack spans several columns. Stretch the knight to reach it using grid-column span.",
+    knightStart: { col: 1, row: 1 },
+    targetCells: [
+      { col: 2, row: 1 }, { col: 3, row: 1 }, { col: 4, row: 1 }
+    ],
+    check: (css) => /grid-column\s*:\s*2\s*\/\s*5\s*;?/.test(css),
+    apply: { gridColumn: "2 / 5", gridRow: "1" }
+  },
+  {
+    title: "Challenge 5",
+    description: "The weapon rack runs tall, not wide. Stretch the knight using grid-row span.",
+    knightStart: { col: 1, row: 1 },
+    targetCells: [
+      { col: 4, row: 1 }, { col: 4, row: 2 }, { col: 4, row: 3 }
+    ],
+    check: (css) => /grid-row\s*:\s*1\s*\/\s*4\s*;?/.test(css),
+    apply: { gridColumn: "4", gridRow: "1 / 4" }
+  },
+  {
+    title: "Challenge 6",
+    description: "Combine what you've learned. Stretch the knight across both columns and rows to reach the full weapon rack.",
+    knightStart: { col: 1, row: 1 },
+    targetCells: [
+      { col: 2, row: 2 }, { col: 3, row: 2 }, { col: 4, row: 2 },
+      { col: 2, row: 3 }, { col: 3, row: 3 }, { col: 4, row: 3 }
+    ],
+    check: (css) => /grid-column\s*:\s*2\s*\/\s*5\s*;?/.test(css) && /grid-row\s*:\s*2\s*\/\s*4\s*;?/.test(css),
+    apply: { gridColumn: "2 / 5", gridRow: "2 / 4" }
+  }
+];
+
+let current = 0;
+
+function cellKey(col, row) { return row + "-" + col; }
+
+function buildGrid() {
+  const playground = document.getElementById("grid-playground");
+  playground.innerHTML = "";
+  for (let row = 1; row <= ROWS; row++) {
+    for (let col = 1; col <= COLS; col++) {
+      const tile = document.createElement("div");
+      tile.className = "tile";
+      tile.dataset.key = cellKey(col, row);
+      tile.style.backgroundImage = "url('images/plain_tile.svg')";
+      playground.appendChild(tile);
+    }
+  }
+}
+
+function getTile(col, row) {
+  return document.querySelector('.tile[data-key="' + cellKey(col, row) + '"]');
+}
+
+function loadLevel() {
+  const lvl = levels[current];
+  document.getElementById("challenge-title").textContent = lvl.title;
+  document.getElementById("description").textContent = lvl.description;
+  document.getElementById("css-input").value = "";
+  document.getElementById("feedback").textContent = "";
+  document.getElementById("feedback").className = "";
+
+  document.getElementById("back-btn").disabled = current === 0;
+  document.getElementById("next-btn").disabled = current === levels.length - 1;
+
+  buildGrid();
+
+  // place the knight at its starting cell
+  const startTile = getTile(lvl.knightStart.col, lvl.knightStart.row);
+  startTile.style.backgroundImage = "url('images/knight_tile.svg')";
+
+  // place the weapon target(s) - stays fixed regardless of user input
+  lvl.targetCells.forEach(c => {
+    const t = getTile(c.col, c.row);
+    // don't overwrite the knight's own starting tile if they happen to overlap
+    if (t !== startTile) {
+      t.style.backgroundImage = "url('images/axe_tile.svg')";
+    }
+  });
+}
+
+function prevLevel() {
+  if (current > 0) {
+    current--;
+    loadLevel();
+  }
+}
+function nextLevel() {
+  if (current < levels.length - 1) {
+    current++;
+    loadLevel();
+  }
+}
+
+function parseSpan(value, axisSize) {
+  // returns array of 1-indexed line positions covered, e.g. "2 / 5" on a 4-col grid -> [2,3,4]
+  value = value.trim();
+  let start, end;
+  if (value.includes("/")) {
+    const parts = value.split("/").map(s => parseInt(s.trim(), 10));
+    start = parts[0];
+    end = parts[1];
+  } else {
+    start = parseInt(value, 10);
+    end = start + 1;
+  }
+  const cells = [];
+  for (let i = start; i < end; i++) cells.push(i);
+  return cells;
+}
+
+function runCheck() {
+  const lvl = levels[current];
+  const css = document.getElementById("css-input").value;
+  const feedback = document.getElementById("feedback");
+
+  if (lvl.check(css)) {
+    // reset grid, then move the knight to fill every cell the answer resolves to
+    buildGrid();
+    const cols = parseSpan(lvl.apply.gridColumn, COLS);
+    const rows = parseSpan(lvl.apply.gridRow, ROWS);
+    rows.forEach(r => {
+      cols.forEach(c => {
+        const t = getTile(c, r);
+        if (t) t.style.backgroundImage = "url('images/knight_tile.svg')";
+      });
+    });
+    feedback.textContent = "✔ Correct! The knight finds his weapon.";
+    feedback.className = "success";
+  } else {
+    feedback.textContent = "✘ Not quite. Try again.";
+    feedback.className = "fail";
+  }
+}
+
+loadLevel();
+</script>
+
+</body>
+</html>

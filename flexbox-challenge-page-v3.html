@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Flexbox Challenge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Cinzel', serif;
+      color: #f2e6c9;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      background-image: url('images/Back1.png');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .vignette {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 100;
+      /* above everything else */
+      pointer-events: none;
+      /* clicks pass through */
+      background: linear-gradient(
+          /* top to bottom */
+          180deg,
+          rgba(0, 0, 0, 0.6) 0%,
+          rgba(0, 0, 0, 0.1) 10%,
+          rgba(0, 0, 0, 0) 20%),
+        linear-gradient(
+          /*bottom to top */
+          0deg,
+          rgba(0, 0, 0, 0.6) 0%,
+          rgba(0, 0, 0, 0.1) 10%,
+          rgba(0, 0, 0, 0) 20%);
+
+    }
+
+    /* ---------- HEADER ---------- */
+    #header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 40px;
+    }
+
+    .nav-label {
+      font-size: 16px;
+      letter-spacing: 2px;
+      font-weight: 600;
+      cursor: pointer;
+      border-bottom: 1px solid #d8c48f;
+      padding-bottom: 4px;
+      border-top: 1px solid #d8c48f;
+      padding-top: 4px;
+      color: #f2e6c9;
+      z-index: 1000;
+    }
+
+    .nav-label a {
+        font-size: 16px;
+      letter-spacing: 2px;
+      font-weight: 600;
+      cursor: pointer;
+      color: #f2e6c9;
+        text-decoration: none;
+    }
+
+    .nav-label a:hover {
+      color: #fff3d6;
+      text-shadow:
+        0 0 5px rgba(228, 205, 167, 0.8),
+        0 0 15px rgba(228, 205, 167, 0.5),
+        0 0 25px rgba(228, 205, 167, 0.3);
+    }
+
+    /* ---------- BODY LAYOUT ---------- */
+    #body {
+      flex: 1;
+      display: flex;
+      padding: 10px 40px 40px 40px;
+      gap: 30px;
+      overflow: hidden;
+      min-height: 0;
+    }
+
+    /* ---------- LEFT PANEL ---------- */
+    #left-panel {
+      width: 42%;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    #challenge-title {
+      font-size: 24px;
+      margin: 0 0 10px 0;
+      font-weight: 700;
+    }
+
+    #description {
+      font-family: 'Segoe UI', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: #f2e6c9;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    /* ---------- TERMINAL ---------- */
+    #terminal {
+      background: rgba(40, 30, 34, 0.55);
+      border-radius: 8px;
+      padding: 14px 16px;
+      min-height: 200px;
+      font-family: 'Consolas', 'Courier New', monospace;
+      font-size: 15px;
+      position: relative;
+      backdrop-filter: blur(2px);
+    }
+
+    #run-btn {
+      position: absolute;
+      top: 12px;
+      right: 14px;
+      background: rgba(216, 196, 143, 0.85);
+      color: #3a232b;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 16px;
+      font-family: 'Segoe UI', sans-serif;
+      font-weight: bold;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    #run-btn:hover {
+      background: #e8d9b0;
+    }
+
+    #code-lines {
+      margin-top: 34px;
+      line-height: 26px;
+    }
+
+    .code-line {
+      white-space: pre;
+    }
+
+    .property {
+      color: #9fce6a;
+    }
+
+    .value {
+      color: #d4d4d4;
+    }
+
+    .punct {
+      color: #d4d4d4;
+    }
+
+    #css-input {
+      background: rgba(255, 255, 255, 0.08);
+      border: none;
+      border-radius: 3px;
+      color: #f2e6c9;
+      font-family: inherit;
+      font-size: 15px;
+      padding: 2px 8px;
+      outline: none;
+      width: 100%;
+      max-width: 280px;
+    }
+
+    #css-input::placeholder {
+      color: #cbb98a;
+    }
+
+    #feedback {
+      font-family: 'Segoe UI', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      margin-top: 12px;
+    }
+
+    #feedback.success {
+      color: #7ec97e;
+    }
+
+    #feedback.fail {
+      color: #e08a7d;
+    }
+
+    /* ---------- SHIP DECOR (bottom of left panel; ship itself lives in Back1.png) ---------- */
+    #left-panel-footer {
+      margin-top: auto;
+      display: flex;
+      justify-content: flex-start;
+      padding-top: 10px;
+    }
+
+    .nav-btn {
+      background: none;
+      border: none;
+      color: #f2e6c9;
+      font-family: 'Cinzel', serif;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      cursor: pointer;
+      border-bottom: 1px solid #d8c48f;
+      border-top: 1px solid #d8c48f;
+      padding-bottom: 3px;
+      padding-top: 3px;
+      z-index: 1000;
+    }
+
+    .nav-btn:disabled {
+      opacity: 0.3;
+      cursor: default;
+      border-bottom-color: transparent;
+    }
+
+    .nav-btn:hover:not(:disabled) {
+      color: #fff3d6;
+      text-shadow:
+        0 0 5px rgba(228, 205, 167, 0.8),
+        0 0 15px rgba(228, 205, 167, 0.5),
+        0 0 25px rgba(228, 205, 167, 0.3);
+    }
+
+    
+
+    #footer {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 40px 30px 40px;
+    }
+
+    /* ---------- RIGHT PANEL (playground card) ---------- */
+    #playground {
+      flex: 1;
+      background-image: url('images/playground.png');
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      position: relative;
+    }
+
+    #targets-layer {
+      position: absolute;
+      inset: 0;
+    }
+
+    .target-img {
+      position: absolute;
+      width: 55px;
+      height: auto;
+      opacity: 0.9;
+    }
+
+    #flex-container {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      padding: 50px;
+    }
+
+    .knight-img {
+      width: 55px;
+      height: auto;
+      flex-shrink: 0;
+      transition: all 0.4s ease;
+
+    }
+  </style>
+</head>
+
+<body>
+  <div class="vignette"></div>
+
+  <div id="header">
+    <div class="nav-label"><a href="lesson.html">Lesson</a></div>
+    <div class="nav-label"><a href="Map.html">Map</a></div>
+  </div>
+
+  <div id="body">
+    <div id="left-panel">
+      <h1 id="challenge-title">Challenge 1</h1>
+      <div id="description"></div>
+
+      <div id="terminal">
+        <button id="run-btn" onclick="runCheck()">Run</button>
+        <div id="code-lines">
+          <div class="code-line"><span class="property">#field</span><span class="punct">{</span></div>
+          <div class="code-line"><span class="property">display</span><span class="punct">:</span> <span
+              class="value">flex;</span></div>
+          <div class="code-line"><span class="punct">/* Type your answer */</span></div>
+          <div class="code-line"><input type="text" id="css-input" placeholder=""></div>
+          <div class="code-line"><span class="punct">}</span></div>
+        </div>
+        <div id="feedback"></div>
+      </div>
+
+      <div id="left-panel-footer"></div>
+    </div>
+
+    <div id="playground">
+      <div id="targets-layer"></div>
+      <div id="flex-container"></div>
+    </div>
+  </div>
+
+  <div id="footer">
+    <button class="nav-btn" id="back-btn" onclick="prevLevel()">Back</button>
+    <button class="nav-btn" id="next-btn" onclick="nextLevel()">Next</button>
+  </div>
+
+  <script>
+    const levels = [
+      {
+        title: "Challenge 1",
+        description: "Use justify-content to get the knight to his weapon.",
+        knightCount: 1,
+        check: (css) => /justify-content\s*:\s*flex-end/.test(css),
+        apply: { justifyContent: "flex-end" }
+      },
+      {
+        title: "Challenge 2",
+        description: "Use justify-content to get the knights to their weapons.",
+        knightCount: 3,
+        check: (css) => /justify-content\s*:\s*space-between/.test(css),
+        apply: { justifyContent: "space-between" }
+      },
+      {
+        title: "Challenge 3",
+        description: "Bring the knights to their weapons using align-items.",
+        knightCount: 3,
+        check: (css) => /align-items\s*:\s*flex-end/.test(css),
+        apply: { alignItems: "flex-end" }
+      },
+      {
+        title: "Challenge 4",
+        description: "Get the knights down to their weapons, spread out evenly, using justify-content and align-items.",
+        knightCount: 3,
+        check: (css) => /justify-content\s*:\s*space-around/.test(css) && /align-items\s*:\s*flex-end/.test(css),
+        apply: { justifyContent: "space-around", alignItems: "flex-end" }
+      },
+      {
+        title: "Challenge 5",
+        description: "Bring the knights to their weapons using flex-direction.",
+        knightCount: 3,
+        check: (css) => /flex-direction\s*:\s*column/.test(css),
+        apply: { flexDirection: "column" }
+      },
+      {
+        title: "Challenge 6",
+        description: "Bring the knights to their weapons using flex-wrap.",
+        knightCount: 6,
+        check: (css) => /flex-wrap\s*:\s*wrap/.test(css),
+        apply: { flexWrap: "wrap" },
+        extraContainerStyle: { width: "60%" }
+      }
+    ];
+
+    let current = 0;
+
+    function loadLevel() {
+      const lvl = levels[current];
+      document.getElementById("challenge-title").textContent = lvl.title;
+      document.getElementById("description").textContent = lvl.description;
+      document.getElementById("css-input").value = "";
+      document.getElementById("feedback").textContent = "";
+      document.getElementById("feedback").className = "";
+
+      document.getElementById("back-btn").disabled = current === 0;
+      document.getElementById("next-btn").disabled = current === levels.length - 1;
+
+      const playground = document.getElementById("playground");
+      const container = document.getElementById("flex-container");
+
+      // reset the real (visible) knight container
+      container.removeAttribute("style");
+      container.style.position = "absolute";
+      container.style.inset = "0";
+      container.style.display = "flex";
+      container.style.padding = "50px";
+      if (lvl.extraContainerStyle) Object.assign(container.style, lvl.extraContainerStyle);
+      container.innerHTML = "";
+      for (let i = 0; i < lvl.knightCount; i++) {
+        const img = document.createElement("img");
+        img.src = "images/knight.svg";
+        img.className = "knight-img";
+        container.appendChild(img);
+      }
+
+      // ghost clone with the correct answer applied, to measure exact target positions
+      const ghost = container.cloneNode(true);
+      ghost.style.visibility = "hidden";
+      ghost.style.pointerEvents = "none";
+      Object.assign(ghost.style, lvl.apply);
+      playground.appendChild(ghost);
+
+      const playgroundRect = playground.getBoundingClientRect();
+      const ghostItems = ghost.querySelectorAll(".knight-img");
+
+      const targetsLayer = document.getElementById("targets-layer");
+      targetsLayer.innerHTML = "";
+      ghostItems.forEach(item => {
+        const r = item.getBoundingClientRect();
+        const img = document.createElement("img");
+        img.src = "images/axe.svg";
+        img.className = "target-img";
+        img.style.left = (r.left - playgroundRect.left) + "px";
+        img.style.top = (r.top - playgroundRect.top) + "px";
+        targetsLayer.appendChild(img);
+      });
+
+      playground.removeChild(ghost);
+    }
+
+    function prevLevel() {
+      if (current > 0) {
+        current--;
+        loadLevel();
+      }
+    }
+    function nextLevel() {
+      if (current < levels.length - 1) {
+        current++;
+        loadLevel();
+      }
+    }
+
+    function runCheck() {
+      const lvl = levels[current];
+      const css = document.getElementById("css-input").value;
+      const feedback = document.getElementById("feedback");
+      const container = document.getElementById("flex-container");
+
+      if (lvl.check(css)) {
+        Object.assign(container.style, lvl.apply);
+        feedback.textContent = "✔ Correct! The knight finds his weapon.";
+        feedback.className = "success";
+      } else {
+        feedback.textContent = "✘ Not quite. Try again.";
+        feedback.className = "fail";
+      }
+    }
+
+    loadLevel();
+  </script>
+
+</body>
+
+</html>
