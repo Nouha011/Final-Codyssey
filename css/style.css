@@ -1,0 +1,312 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+
+.vignette {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100; /* above everything else */
+  pointer-events: none; /* clicks pass through */
+  background: linear-gradient(  /* top to bottom */
+   180deg,
+    rgba(0, 0, 0,0.6) 0%, 
+    rgba(0, 0, 0, 0.1) 20%,
+    rgba(0, 0, 0, 0) 30%
+  ),
+  linear-gradient( /*bottom to top */
+    0deg,
+    rgba(0, 0, 0, 0.6) 0%,
+    rgba(0, 0, 0, 0.1) 20%,
+    rgba(0, 0, 0, 0) 40%
+  );
+
+}
+
+.parallax-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+
+.parallax-container img {
+  position: absolute;
+  pointer-events: none;
+ 
+
+}
+
+
+.sky {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* this is the key property */
+  object-position: center;
+  z-index: -1;
+}
+
+.cloud-1 {
+  top: 2%;
+  left: 2%;
+  width: 20%;
+  z-index: 1;
+}
+
+.cloud-2 {
+  top: 5%;
+  left: 85%;
+  width: 12%;
+  z-index: 2;
+
+}
+
+.cloud-3 {
+  top: 30%;
+  left: 88%;
+  width: 10%;
+  z-index: 3;
+}
+
+
+
+.mountain {
+  top: 25%;
+  left: 0;
+  width: 60%;
+  z-index: 4;
+}
+
+
+.sea {
+  width: 85%;
+  top: 21%;
+  z-index: 5;
+}
+
+
+.ship {
+  left: 5%;
+  width: 20%;
+  top: 60%;
+  z-index: 6;
+}
+
+.man {
+  width: 75%;
+  top: 10%;
+  left: 45%;
+  z-index: 7;
+}
+
+.wind1 {
+  width: 10%;
+  top: 20%;
+  left: 10%;
+  z-index: 9;
+}
+.wind2 {
+  width: 10%;
+  top: 0%;
+  left: 40%;
+  z-index: 9;
+}
+.wind3 {
+  width: 10%;
+  top: 50%;
+  left: 60%;
+  z-index: 9;
+}
+
+.auth-buttons {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-left: auto;
+}
+
+.register-btn {
+margin-right: 100px;
+}
+
+.login-btn{
+  margin-right: 50px;
+}
+.login-btn,
+.register-btn {
+   border-top: 0.5px solid #e4cda7;
+   border-bottom: 0.5px solid #e4cda7;
+   padding: 5px 15px;
+
+  color: #e4cda7;
+  text-decoration: none;
+  font-family: "Cinzel", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  transition: opacity 0.2s ease, text-shadow 0.3s ease, color 0.3s ease;
+}
+
+.login-btn:hover,
+.register-btn:hover {
+  color: #fff3d6;
+  text-shadow:
+    0 0 5px rgba(228, 205, 167, 0.8),
+    0 0 15px rgba(228, 205, 167, 0.5),
+    0 0 25px rgba(228, 205, 167, 0.3);
+}
+
+.navbar {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    padding: 20px 55px;
+
+    position: relative;
+    z-index: 1000;
+}
+.nav-links {
+    display: flex;
+
+    gap: 42px;
+
+    margin-left: 45px;
+}
+
+.nav-links a {
+  color: #e4cda7;
+
+  text-decoration: none;
+
+  font-family: "Cinzel", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+
+  transition: opacity 0.2s ease, text-shadow 0.3s ease, color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #fff3d6;
+  text-shadow:
+    0 0 5px rgba(228, 205, 167, 0.8),
+    0 0 15px rgba(228, 205, 167, 0.5),
+    0 0 25px rgba(228, 205, 167, 0.3);
+}
+
+.logo {
+    color: #e4cda7;
+
+    text-decoration: none;
+
+    font-family: "Cinzel", sans-serif;
+    font-size: 23px;
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+
+.hero-content {
+    width: 60%;
+
+    margin-left: 4.5%;
+    margin-top: 80px;
+
+    text-align: center;
+
+    position: relative;
+    z-index: 100;
+}
+
+
+/* =========================
+   MAIN TITLE
+========================= */
+
+.hero-content h1 {
+    font-family: "Cinzel", serif;
+    font-size: clamp(55px, 6vw, 90px);
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #e4cda7;
+    line-height: 1.05;
+    margin-bottom: 55px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+}
+
+.hero-content h1 span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: revealLetter 0.6s ease forwards;
+}
+
+@keyframes revealLetter {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   DESCRIPTION
+========================= */
+
+.hero-content p {
+    max-width: 520px;
+    margin: 0 auto 40px;
+    margin-bottom: 0px;
+    color: #e4cda7;
+
+    font-family: "DM Sans", sans-serif;
+
+    font-size: 20px;
+    font-weight: 500;
+
+    line-height: 1.55;
+}
+
+
+
+
+.begin-btn {
+  display: block;
+}
+
+.begin-btn img {
+  display: block;
+  width: 380px;       /* fixed width instead of 50% — adjust to taste */
+  max-width: 90%;      /* keeps it responsive on small screens */
+  height: auto;
+  margin-left: 25%; 
+      pointer-events: auto;  /* overrides the parallax-container img rule */
+z-index: 100;
+      /* centers the image itself within .hero-content */
+}
+
+
+.begin-btn:hover {
+    transform: translateY(-4px);
+
+    filter: brightness(1.08);
+}
+
+.begin-btn:active {
+    transform: translateY(0);
+}
